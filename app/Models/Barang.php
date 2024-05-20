@@ -10,12 +10,10 @@ class Barang extends Model
     use HasFactory;
 
     protected $table = 'barangs'; // Sesuaikan dengan nama tabel di database
-    protected $primaryKey = 'id_barang'; // Ganti 'id' dengan nama kolom kunci primer yang benar
-
     protected $fillable = [
         'nama',
         'jenis_barang',
-        'id_barang',
+        'idbarang',
         'gambar',
         'deskripsi',
     ];
@@ -33,19 +31,6 @@ class Barang extends Model
 
         foreach ($categories as $category) {
             $result->push($this->with('JenisBarang')->where('jenis_barang', $category)->inRandomOrder()->firstOrFail());
-        }
-
-        return $result;
-    }
-    public function get()
-    {
-        $categories = $this->select('jenis_barang')->distinct()->pluck('jenis_barang');
-        $result = collect();
-        foreach ($categories as $category) {
-            $trainersWithJenis = $this->with(['jenisBarang' => function ($query) {
-                $query->select('id', 'jenis');
-            }])->where('jenis_barang', $category)->get();
-            $result->push($trainersWithJenis);
         }
         return $result;
     }

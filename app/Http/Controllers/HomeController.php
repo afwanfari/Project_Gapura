@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Barang; // Sesuaikan dengan model Barang Anda
+use App\Models\Barang;
 
 class HomeController extends Controller
 {

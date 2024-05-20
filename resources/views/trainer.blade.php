@@ -3,13 +3,13 @@
     TRAINER | GAPURA
     @endsection
     @section('hero')
-    <div class="py-32 flex bg-gray-700">
-        <p class="text-4xl mx-10 justify-items-start underline text-white underline-offset-8">Produk Trainer Lengkap
+    <div class="flex py-32 bg-gray-700">
+        <p class="mx-10 text-4xl text-white underline justify-items-start underline-offset-8">Produk Trainer Lengkap
         </p>
     </div>
-    <div class="mx-10 py-10">
+    <div class="py-10 mx-10">
         <div class="table-container">
-            <table class="w-full table-auto border-collapse border-2" id="barangTable">
+            <table class="w-full border-2 border-collapse table-auto" id="barangTable">
                 <thead>
                     <tr>
                         <th class="px-6 py-3 border-2">No</th>
@@ -21,10 +21,11 @@
                 <tbody>
                     @foreach($trainer as $key => $barang)
                     <tr class="table-row">
-                        <td class="px-6 border-2 py-4">{{ $key + 1 }}</td>
-                        <td class="px-6 border-2 py-4">{{ $barang->idbarang }}</td>
-                        <td class="px-6 border-2 py-4">{{ $barang->id }}</td>
-                        <td class="px-6 border-2 py-4">{{ $barang->nama }}</td>
+                        <td class="px-6 py-4 border-2">{{ $key + 1 }}</td>
+                        <td class="px-6 py-4 border-2">{{ $barang->idbarang }}</td>
+                        <td class="px-6 py-4 border-2">{{ $barang->jenis_barang }}</td>
+                        <td class="px-6 py-4 border-2">{{ $barang->nama }}</td>
+
                     </tr>
                     @endforeach
                 </tbody>
