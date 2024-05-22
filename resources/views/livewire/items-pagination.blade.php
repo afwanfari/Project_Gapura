@@ -3,7 +3,7 @@
         @foreach($berita as $beritaCard)
         <div class="">
             <img src="{{ asset('/' . $beritaCard->gambar) }}" alt="{{ $beritaCard->judul }}" class="w-30 h-30">
-            <span class="justify-items-center">{{$beritaCard->judul}}</span>
+            <p class="justify-items-center">{{$beritaCard->judul}}</p>
         </div>
         @endforeach
     </div>

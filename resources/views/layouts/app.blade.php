@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
     <!-- Script -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
