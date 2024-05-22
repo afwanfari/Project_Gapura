@@ -1,8 +1,8 @@
+
 <x-app-layout>
-    @section('title')
-        GALERI | GAPURA
-    @endsection
-    @section('content')
+    @section('title', 'GALERRY | GAPURA')
+    @section('hero')
         @livewire('items-pagination')
     @endsection
 </x-app-layout>
+

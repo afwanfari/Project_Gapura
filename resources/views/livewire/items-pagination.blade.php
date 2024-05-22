@@ -1,9 +1,12 @@
 <div>
-    <div class="text-center py-10">
+    <div class="py-32 flex bg-gray-700">
+        <p class="text-4xl mx-10 justify-items-start underline text-white underline-offset-8">ALL GALERI</p>
+    </div>
+    {{-- <div class="text-center py-10">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Galeri Kami.</h2>
         <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
             This is your life and it's ending one minute @ a time...</p>
-    </div>
+    </div> --}}
     <div class=" flex-wrap justify-items-center mx-10 py-10 mx-auto mt-12 select-none">
         <div class="grid grid-cols-5 gap-4 mx-5 overflow-hidden space-x-3 shadow-lg">
             @foreach($berita as $beritaCard)

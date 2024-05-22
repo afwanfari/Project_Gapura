@@ -1,12 +1,11 @@
 <?php
 
-use App\Models\Barang;
-use App\Livewire\ProductList;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FooterController;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 Route::get('/produk/{$idbarang}', function (Barang $barangCard) {
     return $barangCard;
 });

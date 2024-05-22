@@ -1,5 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
-    <livewire:produk-list/>
-@endsection
+<x-app-layout>
+    @section('title', 'PRODUCT LIST | GAPURA')
+    @section('hero')
+        @livewire('produk-list')
+    @endsection
+</x-app-layout>
