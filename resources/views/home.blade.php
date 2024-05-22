@@ -42,7 +42,7 @@
                         </div>
                         <div class="items-center text-center">
                             <p class="text-sm text-indigo-600">
-                                {{ $barangCard->idbarang }}|<span class="text-black">{{Str::limit($barangCard->nama,50)
+                                {{ $barangCard->id }}|<span class="text-black">{{Str::limit($barangCard->nama,50)
                                     }}</span></p>
                             </p>
                         </div>

@@ -23,7 +23,7 @@
                     <tr class="table-row">
                         <td class="px-6 border-2 py-4">{{ $key + 1 }}</td>
                         <td class="px-6 border-2 py-4">{{ $barang->idbarang }}</td>
-                        <td class="px-6 border-2 py-4">{{ $barang->id }}</td>
+                        <td class="px-6 border-2 py-4">{{ $barang->jenis_barang }}</td>
                         <td class="px-6 border-2 py-4">{{ $barang->nama }}</td>
                     </tr>
                     @endforeach

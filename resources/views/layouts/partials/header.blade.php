@@ -22,8 +22,8 @@
             </x-nav-link>
          </li>
          <li>
-            <x-nav-link href="{{ route('product') }}" :active="request()->routeIs('product')">
-               {{ __('Product') }}
+            <x-nav-link href="{{ route('produk') }}" :active="request()->routeIs('produk')">
+               {{ __('Produk') }}
             </x-nav-link>
          </li>
          <li>
