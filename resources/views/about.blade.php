@@ -4,14 +4,14 @@
     @endsection
     @section('hero')
     <div class="py-32 flex bg-gray-700">
-        <p class="text-4xl mx-10 justify-items-start underline text-white underline-offset-8">tentang Kami</p>
+        <p class="text-4xl mx-10 justify-items-start underline text-white underline-offset-8">Tentang Kami</p>
     </div>
     <div class=" mx-auto">
         <div class="py-48 px-20 pt-30 text-center bg-center"
             style=" background-image: url('/images/bg.jpg'); background-size: cover;">
             <div
                 class="text-left uppercase tracking-wide text-2xl text-black font-semibold underline underline-offset-8">
-                About Us</div>
+                Tentang Kami</div>
             <p class=" text-black text-left">Kami praktisi peduli pendidikan yang mengabdikan diri sebagai inovator<br>
                 media pembelajaran dan transfer IPTEK dalam negeri dengan menciptakan <br> alat peraga / alat praktek /
                 Teaching Aid / trainer berbasis IPTEK sebagai <br> sumbangsih kami pada negara Indonesia.</p>
