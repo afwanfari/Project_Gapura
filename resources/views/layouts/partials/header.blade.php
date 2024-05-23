@@ -18,12 +18,12 @@
       <ul class="flex flex-col items-center justify-center h-full gap-2 -translate-y-10 md:flex-row md:translate-y-0">
          <li>
             <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-               {{ __('Home') }}
+               {{ __('Beranda') }}
             </x-nav-link>
          </li>
          <li>
-            <x-nav-link href="{{ route('product') }}" :active="request()->routeIs('product')">
-               {{ __('Product') }}
+            <x-nav-link href="{{ route('produk') }}" :active="request()->routeIs('produk')">
+               {{ __('Produk') }}
             </x-nav-link>
          </li>
          <li>
@@ -33,17 +33,17 @@
          </li>
          <li>
             <x-nav-link href="{{ route('galery') }}" :active="request()->routeIs('galery')">
-               {{ __('Gallery') }}
+               {{ __('Galeri') }}
             </x-nav-link>
          </li>
          <li>
             <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
-               {{ __('About us') }}
+               {{ __('Tentang Kami') }}
             </x-nav-link>
          </li>
          <li>
             <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
-               {{ __('Contact') }}
+               {{ __('Kontak') }}
             </x-nav-link>
          </li>
       </ul>

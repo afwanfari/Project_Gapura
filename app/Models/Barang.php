@@ -19,19 +19,18 @@ class Barang extends Model
     ];
 
 
-    public function jenisBarang()
-    {
-        return $this->belongsTo(jenisBarang::class, 'jenis_barang', 'id');
-    }
+    // public function jenisBarang()
+    // {
+    //     return $this->belongsTo(jenisBarang::class, 'jenis_barang', 'id');
+    // }
 
     public function getData()
     {
-        $categories = $this->select('jenis_barang')->distinct()->pluck('jenis_barang');
-        $result = collect();
+        $result = self::inRandomOrder()->get();
 
-        foreach ($categories as $category) {
-            $result->push($this->with('JenisBarang')->where('jenis_barang', $category)->inRandomOrder()->firstOrFail());
-        }
+        // foreach ($categories as $category) {
+        //     $result->push($this->with('JenisBarang')->where('jenis_barang', $category)->inRandomOrder()->firstOrFail());
+        // }
         return $result;
     }
 }
