@@ -32,12 +32,10 @@
                             </div>
                             <div class="items-center text-center">
                                 <p class="text-sm text-indigo-600">
-                                    {{ $barangCard->idbarang }}|<span
-                                        class="text-black">{{ Str::limit($barangCard->nama, 50) }}</span>
-                                </p>
+                                    {{ $barangCard->idbarang }}|<span {{-- class="text-black">{{ Str::limit($barangCard->nama, 50) }}</span> --}} </p>
                             </div>
                             <div>
-                                <p class="py-2 mx-5 block indent-3">{{ Str::limit($barangCard->deskripsi, 150) }}</p>
+                                {{-- <p class="py-2 mx-5 block indent-3">{{ Str::limit($barangCard->deskripsi, 150) }}</p> --}}
                             </div>
                         </a>
                     </div>

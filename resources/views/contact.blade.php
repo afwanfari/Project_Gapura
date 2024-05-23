@@ -1,9 +1,8 @@
 <x-app-layout>
 
     @section('title')
-    CONTACT | GAPURA
+        CONTACT | GAPURA
     @endsection
     @section('hero')
-
     @endsection
 </x-app-layout>

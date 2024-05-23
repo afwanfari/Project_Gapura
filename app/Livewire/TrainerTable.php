@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Dotenv\Util\Str; 
 use App\Models\Barang;
 
 class TrainerTable extends Component

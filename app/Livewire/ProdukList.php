@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Dotenv\Util\Str; 
 use Livewire\WithPagination;
 use App\Models\Barang;
 

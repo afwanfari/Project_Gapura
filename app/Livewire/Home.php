@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Barang;
 use Livewire\Component;
+use Dotenv\Util\Str; 
 
 class Home extends Component
 {

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Berita;
+use Dotenv\Util\Str; 
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\WithoutUrlPagination;
