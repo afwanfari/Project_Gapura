@@ -5,3 +5,15 @@
 [x-cloak] {
     display: none;
 }
+
+.card {
+    @apply flex flex-col space-x-3 overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500;
+}
+
+.hero {
+    @apply py-5 tracking-tight text-2xl font-bold leading-none underline underline-offset-8;
+}
+
+.header {
+    @apply md:flex items-center select-none justify-between [&>*]:px-8 sticky top-0 z-50 bg-gray-800 text-white;
+}

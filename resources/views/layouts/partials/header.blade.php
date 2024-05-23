@@ -1,5 +1,4 @@
-<header x-data="{ mobilenavOpen: false }"
-   class="md:flex items-center select-none justify-between [&>*]:px-8 sticky top-0 z-50 bg-gray-800 text-white">
+<header x-data="{ mobilenavOpen: false }" class="header">
    <div class="flex items-center justify-between h-20 ">
       <x-application-mark />
       <mobileicon class="md:hidden">

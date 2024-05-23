@@ -4,7 +4,7 @@
     @endsection
     @section('hero')
     <div class="flex py-32 bg-gray-700">
-        <p class="mx-10 text-4xl text-white underline justify-items-start underline-offset-8">Produk Trainer Lengkap
+        <p class="hero text-white px-5">Produk Trainer Lengkap
         </p>
     </div>
     <div class="py-10 mx-10">

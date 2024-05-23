@@ -8,96 +8,66 @@
     </div>
     <main class="flex gap-4 py-10">
         <section class="w-1/6 mt-12">
-            <ul class="gap-8 mx-2 justify-items-left">
-                <li> <a href=""
-                        class="flex items-center justify-start gap-2 py-3 transition duration-150 ease-in-out border-2 rounded-lg hover:bg-orange-500 ">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\elektronika.png') }}"
-                            alt="elektronika">
-                        <span>Elektronika</span>
-                    </a>
-                </li>
-                <li> <a href=""
-                        class="flex items-center justify-start gap-2 py-3 transition duration-150 ease-in-out border-2 rounded-lg hover:bg-orange-500">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\ALATBERAT.png') }}" alt="ALATBERAT">
-                        <span>Alat Berat</span>
-                    </a>
-                </li>
-                <li> <a href=""
-                        class="flex items-center justify-start gap-2 py-3 transition duration-150 ease-in-out border-2 rounded-lg hover:bg-orange-500">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\energi.png') }}" alt="energi">
-                        <span>Energi</span>
-                    </a>
-                </li>
-                <li> <a href=""
-                        class="flex items-center justify-start gap-2 py-3 transition duration-150 ease-in-out border-2 rounded-lg hover:bg-orange-500">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\kereta.png') }}" alt="kereta">
-                        <span>Kereta</span>
-                    </a>
-                </li>
-                <li> <a href=""
-                        class="flex items-center justify-start gap-2 py-3 transition duration-150 ease-in-out border-2 rounded-lg hover:bg-orange-500">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\LABBAHASA.png') }}" alt="LABBAHASA">
-                        <span>Lab Bahasa</span>
-                    </a>
-                </li>
-                <li> <a href=""
-                        class="flex items-center justify-start gap-2 py-3 transition duration-150 ease-in-out border-2 rounded-lg hover:bg-orange-500">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\LISTRIK.png') }}" alt="LISTRIK">
-                        <span>Listrik</span>
-                    </a>
-                </li>
-                <li> <a href=""
-                        class="flex items-center justify-start gap-2 py-3 transition duration-150 ease-in-out border-2 rounded-lg hover:bg-orange-500">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\MEKATRONIKA.png') }}"
-                            alt="MEKATRONIKA">
-                        <span>Mekatronika</span>
-                    </a>
-                </li>
-                <li> <a href=""
-                        class="flex items-center justify-start gap-2 py-3 transition duration-150 ease-in-out border-2 rounded-lg hover:bg-orange-500">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\OTOMOTIF.png') }}" alt="OTOMOTIF">
-                        <span>Otomotif</span>
-                    </a>
-                </li>
-                <li> <a href=""
-                        class="flex items-center justify-start gap-2 py-3 transition duration-150 ease-in-out border-2 rounded-lg hover:bg-orange-500">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\OTOTRONIK.png') }}" alt="OTOTRONIK">
-                        <span>Ototronik</span>
-                    </a>
-                </li>
-                <li> <a href=""
-                        class="flex items-center justify-start gap-2 py-3 transition duration-150 ease-in-out border-2 rounded-lg hover:bg-orange-500">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\PENDINGIN.png') }}" alt="PENDINGIN">
-                        <span>Pendingin</span>
-                    </a>
-                </li>
-                <li> <a href=""
-                        class="flex items-center justify-start gap-2 py-3 transition duration-150 ease-in-out border-2 rounded-lg hover:bg-orange-500">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\PERKAPALAN.png') }}"
-                            alt="PERKAPALAN">
-                        <span>Perkapalan</span>
-                    </a>
-                </li>
-                <li> <a href=""
-                        class="flex items-center justify-start gap-2 py-3 transition duration-150 ease-in-out border-2 rounded-lg hover:bg-orange-500">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\PESAWATUDARA.JPG') }}"
-                            alt="PESAWATUDARA">
-                        <span>Pesawat Udara</span>
-                    </a>
-                </li>
-                <li> <a href=""
-                        class="flex items-center justify-start gap-2 py-3 transition duration-150 ease-in-out border-2 rounded-lg hover:bg-orange-500">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\UKM.JPG') }}" alt="UKM">
-                        <span>UKM</span>
-                    </a>
-                </li>
+            <ul class="space-y-4 px-4 justify-items-left ">
+                <x-li>
+                    <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\elektronika.png') }}" alt="elektronika">
+                    <span>Elektronika</span>
+                </x-li>
+                <x-li>
+                    <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\ALATBERAT.png') }}" alt="ALATBERAT">
+                    <span>Alat Berat</span>
+                </x-li>
+                <x-li>
+                    <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\energi.png') }}" alt="energi">
+                    <span>Energi</span>
+                </x-li>
+                <x-li>
+                    <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\kereta.png') }}" alt="kereta">
+                    <span>Kereta</span>
+                </x-li>
+                <x-li>
+                    <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\LABBAHASA.png') }}" alt="LABBAHASA">
+                    <span>Lab Bahasa</span>
+                </x-li>
+                <x-li>
+                    <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\LISTRIK.png') }}" alt="LISTRIK">
+                    <span>Listrik</span>
+                </x-li>
+                <x-li>
+                    <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\MEKATRONIKA.png') }}" alt="MEKATRONIKA">
+                    <span>Mekatronika</span>
+                </x-li>
+                <x-li>
+                    <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\OTOMOTIF.png') }}" alt="OTOMOTIF">
+                    <span>Otomotif</span>
+                </x-li>
+                <x-li>
+                    <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\OTOTRONIK.png') }}" alt="OTOTRONIK">
+                    <span>Ototronik</span>
+                </x-li>
+                <x-li>
+                    <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\PENDINGIN.png') }}" alt="PENDINGIN">
+                    <span>Pendingin</span>
+                </x-li>
+                <x-li>
+                    <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\PERKAPALAN.png') }}" alt="PERKAPALAN">
+                    <span>Perkapalan</span>
+                </x-li>
+                <x-li>
+                    <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\PESAWATUDARA.JPG') }}"
+                        alt="PESAWATUDARA">
+                    <span>Pesawat Udara</span>
+                </x-li>
+                <x-li>
+                    <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images\UKM.JPG') }}" alt="UKM">
+                    <span>UKM</span>
+                </x-li>
             </ul>
         </section>
         <section class="w-5/6 mx-2.5">
             <div class="grid gap-8 mx-auto mt-12 select-none lg:grid-cols-3 ">
                 @foreach($barang as $barangCard)
-                <div
-                    class="flex flex-col space-x-3 overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500">
+                <div class="card">
                     <a href="/produk/{{$barangCard->idbarang}}">
                         <div class="flex items-center justify-center py-2">
                             <img class="object-cover h-28 w-30" src="{{ asset('/' . $barangCard->gambar) }}"
