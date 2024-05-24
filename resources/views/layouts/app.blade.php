@@ -14,6 +14,7 @@
     <!-- Styles -->
     @vite('resources/css/style.css')
     <!-- Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Livewire Styles -->
     @livewireStyles
 </head>

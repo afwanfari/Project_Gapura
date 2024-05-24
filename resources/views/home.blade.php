@@ -2,6 +2,6 @@
     @section('title', 'HOME | GAPURA')
     @section('hero')
 
-        @livewire('home')
+    @livewire('home')
     @endsection
 </x-app-layout>

@@ -3,25 +3,25 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Dotenv\Util\Str; 
+use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
 use App\Models\Barang;
 
 class ProdukList extends Component
 {
     use WithPagination;
+    use WithoutUrlPagination;
 
     protected $queryString = ['page'];
     public $selectedJenis = '';
     public $jenisList = [];
-    protected $paginationTheme = 'bootstrap';
     public $page = 1;
 
     public function mount()
     {
         $this->jenisList = Barang::distinct()->pluck('jenis_barang');
     }
-    
+
     public function filterByJenis($jenis)
     {
         $this->selectedJenis = $jenis;
@@ -34,7 +34,7 @@ class ProdukList extends Component
             ->when($this->selectedJenis, function ($query) {
                 $query->where('jenis_barang', $this->selectedJenis);
             })
-            ->paginate(10, ['*'], 'page', $this->page); // Masukkan halaman saat ini
+            ->paginate(12, ['*'], 'page', $this->page); // Masukkan halaman saat ini
 
         return view('livewire.produk-list', [
             'barangs' => $barangs,

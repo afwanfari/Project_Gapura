@@ -16,7 +16,7 @@ class ItemsPagination extends Component
     public function render()
     {
         return view('livewire.items-pagination', [
-            'berita' => Berita::paginate(20)
+            'berita' => Berita::paginate(20)->fragment('Galeri-Kami')
         ]);
     }
 }
