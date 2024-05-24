@@ -8,14 +8,14 @@
             <div class="w-1/4 mt-10 border-gray-200">
                 <ul class="px-4 space-y-4">
                     @foreach ($jenisList as $jenis)
-                    <li>
-                        <a href="#" wire:click.prevent="filterByJenis('{{ $jenis }}')"
-                            class="flex items-center justify-start block gap-2 py-3 border-2 rounded-lg hover:bg-orange-500 hover:text-white">
-                            <img class="w-6 h-6 mx-2 select-none"
-                                src="{{ asset('images/' . strtolower($jenis) . '.png') }}" alt="{{ $jenis }}">
-                            <span>{{ $jenis }}</span>
-                        </a>
-                    </li>
+                        <li>
+                            <a href="#" wire:click.prevent="filterByJenis('{{ $jenis }}')"
+                                class="flex items-center justify-start block gap-2 py-3 border-2 rounded-lg hover:bg-orange-500 hover:text-white">
+                                <img class="w-6 h-6 mx-2 select-none"
+                                    src="{{ asset('images/' . strtolower($jenis) . '.png') }}" alt="{{ $jenis }}">
+                                <span>{{ $jenis }}</span>
+                            </a>
+                        </li>
                     @endforeach
                 </ul>
             </div>

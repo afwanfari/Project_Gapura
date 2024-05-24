@@ -47,7 +47,7 @@
             <div class="flex justify-center">
                 <a x-on:click="sectionproduksi = !sectionproduksi"
                     class="mt-4 text-2xl transition transform cursor-pointer"
-                    x-bind:class="{'mt-24': sectionproduksi, 'mt-24': !sectionproduksi}"
+                    x-bind:class="{ 'mt-24': sectionproduksi, 'mt-24': !sectionproduksi }"
                     x-transition:enter="transition ease-out duration-500"
                     x-transition:enter-start="opacity-0 transform translate-y-4"
                     x-transition:enter-end="opacity-100 transform translate-y-0"
@@ -97,7 +97,7 @@
             </div>
             <div class="flex justify-center">
                 <a x-on:click="sectionproduk = !sectionproduk" class="mt-4 text-2xl transition transform cursor-pointer"
-                    x-bind:class="{'mt-24': sectionproduk, 'mt-24': !sectionproduk}"
+                    x-bind:class="{ 'mt-24': sectionproduk, 'mt-24': !sectionproduk }"
                     x-transition:enter="transition ease-out duration-500"
                     x-transition:enter-start="opacity-0 transform translate-y-4"
                     x-transition:enter-end="opacity-100 transform translate-y-0"
@@ -142,7 +142,7 @@
             </div>
             <div class="flex justify-center">
                 <a x-on:click="sectiontrust = !sectiontrust" class="mt-4 text-2xl transition transform cursor-pointer"
-                    x-bind:class="{'mt-24': sectiontrust, 'mt-24': !sectiontrust}"
+                    x-bind:class="{ 'mt-24': sectiontrust, 'mt-24': !sectiontrust }"
                     x-transition:enter="transition ease-out duration-500"
                     x-transition:enter-start="opacity-0 transform translate-y-4"
                     x-transition:enter-end="opacity-100 transform translate-y-0"
@@ -158,7 +158,8 @@
 
     <section class="relative px-6 pt-16 pb-20 lg:px-8 lg:pt-24 lg:pb-28 ">
         <div class="py-10 text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kami Juga Memproduksi Trainer Dengan
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kami Juga Memproduksi Trainer
+                Dengan
                 Spesifikasi Produk Import.</h2>
             <p class="max-w-2xl mx-auto mt-3 text-xl text-gray-500 sm:mt-4">
                 Silahkan Memesan Kepada Kami. Cintailah produk Indonesia</p>
@@ -171,7 +172,7 @@
                     minute @ a time...</p>
             </div>
             <div class="mx-auto mt-12 grid max-w-lg gap-8 lg:max-w-none lg:grid-cols-3 select-none">
-                @foreach ($barangs as $barangCard)
+                @foreach ($barang as $barangCard)
                     <div
                         class="flex flex-col overflow-hidden space-x-3 rounded-lg shadow-lg border-2 hover:border-double hover:border-sky-500">
                         <a href="/produk/{{ $barangCard->idbarang }}">
