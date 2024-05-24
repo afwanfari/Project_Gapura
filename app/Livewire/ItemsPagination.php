@@ -12,6 +12,7 @@ class ItemsPagination extends Component
     use WithPagination;
     use WithoutUrlPagination;
 
+    protected $paginationTheme = 'bootstrap';
     public function render()
     {
         return view('livewire.items-pagination', [

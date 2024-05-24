@@ -11,6 +11,7 @@ class ProdukList extends Component
 {
     use WithPagination;
     use WithoutUrlPagination;
+    protected $paginationTheme = 'bootstrap';
 
     protected $queryString = ['page'];
     public $selectedJenis = '';
