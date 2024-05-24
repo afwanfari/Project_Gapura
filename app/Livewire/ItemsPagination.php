@@ -10,12 +10,13 @@ use Livewire\WithoutUrlPagination;
 
 class ItemsPagination extends Component
 {
-    use WithPagination, WithoutUrlPagination;
+    use WithPagination;
+    use WithoutUrlPagination;
 
     public function render()
     {
         return view('livewire.items-pagination', [
-            'berita' => Berita::paginate(10)
+            'berita' => Berita::paginate(20)
         ]);
     }
 }

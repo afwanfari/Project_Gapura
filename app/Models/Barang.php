@@ -10,13 +10,22 @@ class Barang extends Model
     use HasFactory;
 
     protected $table = 'barang'; // Sesuaikan dengan nama tabel di database
-    protected $primaryKey = 'id'; // Ganti 'id' dengan nama kolom kunci primer yang benar
-
-    protected $fillable = ['id','nama', 'gambar', 'deskripsi'];
+    protected $fillable = [
+        'nama',
+        'jenis_barang',
+        'idbarang',
+        'gambar',
+        'deskripsi',
+    ];
 
     public function getData()
     {
-        $result = self::inRandomOrder()->get();
+        $categories = $this->select('jenis_barang')->distinct()->pluck('jenis_barang');
+        $result = collect();
+
+        foreach ($categories as $category) {
+            $result->push($this->where('jenis_barang', $category)->inRandomOrder()->firstOrFail());
+        }
 
         return $result;
     }

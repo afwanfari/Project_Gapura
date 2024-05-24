@@ -1,6 +1,6 @@
 <x-app-layout>
     @section('title', 'PRODUCT LIST | GAPURA')
     @section('hero')
-        @livewire('produk-list')
+    @livewire('produk-list')
     @endsection
 </x-app-layout>

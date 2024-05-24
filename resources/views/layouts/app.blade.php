@@ -12,10 +12,8 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite('resources/css/style.css')
     <!-- Script -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Livewire Styles -->
     @livewireStyles
 </head>
@@ -23,9 +21,10 @@
 <body class="font-serif antialiased">
     @include('layouts.partials.header')
     @yield('hero')
-    <main class="container mx-auto px-5 flex flex-grow mt-16">
+    <main class="container flex flex-grow px-5 mx-auto mt-16">
         {{ $slot }}
     </main>
+
     @include('layouts.partials.footer')
     @stack('modals')
     @livewireScripts

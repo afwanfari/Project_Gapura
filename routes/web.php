@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Barang;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,4 +24,5 @@ Route::get('/produk', function () {
 Route::get('/trainer', function () {
     return view('trainer');
 })->name('trainer');
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {});
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+});

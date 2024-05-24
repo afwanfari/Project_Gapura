@@ -1,27 +1,26 @@
 <div>
     <div>
-        <div class="py-32 flex bg-gray-700">
-            <p class="text-4xl mx-10 justify-items-start underline text-white underline-offset-8">PRODUCT LIST</p>
+        <div class="flex py-32 bg-gray-700">
+            <p class="text-white hero ">Product</p>
         </div>
         <div class="flex">
             <!-- Sidebar for filtering -->
-            <div class="w-1/4 p-4 border-r border-gray-200">
-                <ul>
+            <div class="w-1/4 mt-10 border-gray-200">
+                <ul class="px-4 space-y-4">
                     @foreach ($jenisList as $jenis)
-                        <li>
-                            <a href="#" wire:click.prevent="filterByJenis('{{ $jenis }}')"
-                                class="flex items-center justify-start border-2 block hover:bg-orange-500 rounded-lg py-3 gap-2">
-                                <img class="w-6 h-6 select-none mx-2"
-                                    src="{{ asset('images/' . strtolower($jenis) . '.png') }}" alt="{{ $jenis }}">
-                                <span>{{ $jenis }}</span>
-                            </a>
-                        </li>
+                    <li>
+                        <a href="#" wire:click.prevent="filterByJenis('{{ $jenis }}')"
+                            class="flex items-center justify-start block gap-2 py-3 border-2 rounded-lg hover:bg-orange-500 hover:text-white">
+                            <img class="w-6 h-6 mx-2 select-none"
+                                src="{{ asset('images/' . strtolower($jenis) . '.png') }}" alt="{{ $jenis }}">
+                            <span>{{ $jenis }}</span>
+                        </a>
+                    </li>
                     @endforeach
                 </ul>
             </div>
-
             <!-- Main content for displaying products -->
-            <div class="w-3/4 mx-auto mt-12 grid gap-8 lg:grid-cols-3 select-none">
+            <div class="grid w-3/4 gap-8 mx-2.5 mt-12 select-none grid-cols-3">
                 @foreach ($barangs as $barangCard)
                     <div
                         class="flex flex-col overflow-hidden space-x-3 rounded-lg shadow-lg border-2 hover:border-double hover:border-sky-500">
@@ -32,17 +31,19 @@
                             </div>
                             <div class="items-center text-center">
                                 <p class="text-sm text-indigo-600">
-                                    {{ $barangCard->idbarang }}|<span {{-- class="text-black">{{ Str::limit($barangCard->nama, 50) }}</span> --}} </p>
+                                    {{ $barangCard->idbarang }}|<span
+                                        class="text-black">{{ Str::limit($barangCard->nama, 50) }}</span>
+                                </p>
                             </div>
                             <div>
-                                {{-- <p class="py-2 mx-5 block indent-3">{{ Str::limit($barangCard->deskripsi, 150) }}</p> --}}
+                                <p class="py-2 mx-5 block indent-3">{{ Str::limit($barangCard->deskripsi, 150) }}</p>
                             </div>
                         </a>
                     </div>
                 @endforeach
             </div>
         </div>
-        <div class="justify-center items-center mt-4">
+        <div class="items-center justify-center mt-4">
             {{ $barangs->links('vendor.pagination.simple-tailwind', ['forcePage' => $barangs->currentPage() + 1]) }}
         </div>
     </div>
