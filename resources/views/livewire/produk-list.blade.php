@@ -1,7 +1,8 @@
 <div>
     <div>
-        <div class="flex py-32 bg-gray-700">
-            <p class="text-white hero ">Product</p>
+        <div class="flex px-5 py-32 bg-gray-700">
+            <p class="text-white py-5 text-4xl font-bold leading-none tracking-tight underline underline-offset-8 ">
+                Product</p>
         </div>
         <div class="flex">
             <!-- Sidebar for filtering -->
@@ -20,9 +21,10 @@
                 </ul>
             </div>
             <!-- Main content for displaying products -->
-            <div class="grid w-3/4 gap-8 mx-2.5 mt-12 select-none grid-cols-3">
+            <div class="grid w-3/4 gap-8 mx-2.5 mt-12 select-none lg:grid-cols-3 md:grid-cols-2">
                 @foreach ($barangs as $barangCard)
-                <div class="card">
+                <div
+                    class="flex flex-col space-x-3 overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500">
                     <a href="/produk/{{ $barangCard->idbarang }}">
                         <div class="flex items-center justify-center py-2">
                             <img class="object-cover h-28 w-30" src="{{ asset('/' . $barangCard->gambar) }}"
@@ -45,7 +47,7 @@
             </div>
         </div>
         <div class="items-center justify-center mt-4">
-            {{ $barangs->links('vendor.pagination.simple-tailwind', ['forcePage' => $barangs->currentPage() + 1]) }}
+            {{ $barangs->links('vendor.livewire.tailwind', ['forcePage' => $barangs->currentPage() + 1]) }}
         </div>
     </div>
 </div>
