@@ -161,29 +161,29 @@
         </div>
         <div class="relative mx-auto max-w-7xl">
             <div class="grid max-w-lg gap-8 mx-auto mt-12 select-none lg:max-w-none lg:grid-cols-3 ">
-                @foreach($barang as $barangCard)
-                <div class="card ">
-                    <a href="/produk/{{$barangCard->idbarang}}">
-                        <div class="py-1 text-sm bg-gray-300 ">
-                            <p>{{ $barangCard->jenis_barang}}</>
-                            </p>
-                        </div>
-                        <div class="flex items-center justify-center py-2">
-                            <img class="object-cover h-28 w-30" src="{{ asset('/' . $barangCard->gambar) }}"
-                                alt="{{ $barangCard->nama }}">
-                        </div>
-                        <div class="items-center text-center">
-                            <p class="text-sm text-indigo-600">
-                                {{ $barangCard->idbarang }}|<span class="text-black">{{Str::limit($barangCard->nama,50)
-                                    }}</span></p>
-                            </p>
-                        </div>
-                        <div>
-                            <p class="block py-2 mx-5 text-start text-slate-800 indent-3">
-                                {{Str::limit($barangCard->deskripsi,150) }}</p>
-                        </div>
-                    </a>
-                </div>
+                @foreach ($barang as $barangCard)
+                    <div class="card ">
+                        <a href="/produk/{{ $barangCard->idbarang }}">
+                            <div class="py-1 text-sm bg-gray-300 ">
+                                <p>{{ $barangCard->jenis_barang }}</>
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-center py-2">
+                                <img class="object-cover h-28 w-30" src="{{ asset('/' . $barangCard->gambar) }}"
+                                    alt="{{ $barangCard->nama }}">
+                            </div>
+                            <div class="items-center text-center">
+                                <p class="text-sm text-indigo-600">
+                                    {{ $barangCard->idbarang }}|<span
+                                        class="text-black">{{ Str::limit($barangCard->nama, 50) }}</span></p>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="block py-2 mx-5 text-start text-slate-800 indent-3">
+                                    {{ Str::limit($barangCard->deskripsi, 150) }}</p>
+                            </div>
+                        </a>
+                    </div>
                 @endforeach
             </div>
         </div>

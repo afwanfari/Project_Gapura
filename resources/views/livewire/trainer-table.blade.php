@@ -18,12 +18,12 @@
                     </thead>
                     <tbody>
                         @foreach ($trainer as $key => $barang)
-                        <tr class="table-row">
-                            <td class="px-6 py-4 border-2">{{ $key + 1 }}</td>
-                            <td class="px-6 py-4 border-2">{{ $barang->idbarang }}</td>
-                            <td class="px-6 py-4 border-2">{{ $barang->jenis_barang }}</td>
-                            <td class="px-6 py-4 border-2">{{ $barang->nama }}</td>
-                        </tr>
+                            <tr class="table-row">
+                                <td class="px-6 py-4 border-2">{{ $key + 1 }}</td>
+                                <td class="px-6 py-4 border-2">{{ $barang->idbarang }}</td>
+                                <td class="px-6 py-4 border-2">{{ $barang->jenis_barang }}</td>
+                                <td class="px-6 py-4 border-2">{{ $barang->nama }}</td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
