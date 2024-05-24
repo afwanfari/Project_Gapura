@@ -9,10 +9,12 @@ class Home extends Component
 {
     public function render()
     {
-        $barangs = Barang::all(); // Ganti dengan logika pengambilan data sesuai kebutuhan
+
+        $barangModel = new Barang();
+        $barangs = $barangModel->getData();
 
         return view('livewire.home', [
-            'barangs' => $barangs,
+            'barang' => $barangs,
         ]);
     }
 }

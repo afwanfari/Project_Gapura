@@ -9,7 +9,7 @@ class Barang extends Model
 {
     use HasFactory;
 
-    protected $table = 'barangs'; // Sesuaikan dengan nama tabel di database
+    protected $table = 'barang'; // Sesuaikan dengan nama tabel di database
     protected $fillable = [
         'nama',
         'jenis_barang',
@@ -18,19 +18,15 @@ class Barang extends Model
         'deskripsi',
     ];
 
-
-    // public function jenisBarang()
-    // {
-    //     return $this->belongsTo(jenisBarang::class, 'jenis_barang', 'id');
-    // }
-
     public function getData()
     {
-        $result = self::inRandomOrder()->get();
+        $categories = $this->select('jenis_barang')->distinct()->pluck('jenis_barang');
+        $result = collect();
 
-        // foreach ($categories as $category) {
-        //     $result->push($this->with('JenisBarang')->where('jenis_barang', $category)->inRandomOrder()->firstOrFail());
-        // }
+        foreach ($categories as $category) {
+            $result->push($this->where('jenis_barang', $category)->inRandomOrder()->firstOrFail());
+        }
+
         return $result;
     }
 }
