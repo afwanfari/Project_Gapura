@@ -188,9 +188,28 @@
             </div>
         </div>
     </section>
-    <section class="grid items-center justify-center space-y-5">
+    <section class="flex justify-between items-center px-6 pt-5 pb-10 ">
+        <div class="w-1/2 py-10 text-center justify-items-center">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kami Juga Mempunyai Produk Katalog
+                Silahkan Dicek.</h2>
+        </div>
+        <div class="w-1/2 justify-items-center mt-10">
+            <ul
+                class="px-4 space-y-1 border border-sky-500 shadow-lg justify-center items-center *:hover:underline-offset-1">
+                @foreach ($katalog as $list)
+                <li class="text-black hover:text-blue-500">
+                    <a href="#" class=" flex items-center gap-2 py-1 ">
+                        <p>{{$list->nama}}</p>
+                    </a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+    </section>
+    <section class=" grid items-center justify-center pt-10 space-y-5">
         <div>
-            <h2 class="py-5 text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-4xl">Lokasi Kami</h2>
+            <h2 class="py-5 text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-4xl">
+                Lokasi Kami</h2>
         </div>
         <div>
             <iframe
