@@ -19,6 +19,7 @@ use App\Filament\Resources\KatalogResource\RelationManagers;
 class KatalogResource extends Resource
 {
     protected static ?string $model = Katalog::class;
+    
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

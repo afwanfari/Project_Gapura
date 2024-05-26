@@ -47,7 +47,6 @@
                     {{ __('Kontak') }}
                 </x-nav-link>
             </li>
-
         </ul>
     </nav>
 </header>
