@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Barang;
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KatalogController;
 
@@ -9,9 +9,7 @@ Route::get('/katalog/download/{filename}', [KatalogController::class, 'download'
 Route::get('/', function () {
     return view('home');
 })->name('home');
-Route::get('/produk/{$idbarang}', function (Barang $barangCard) {
-    return $barangCard;
-});
+Route::get('/produk/{idbarang}', [ProdukController::class, 'index'])->name('product.detail');
 Route::get('/about', function () {
     return view('about');
 })->name('about');

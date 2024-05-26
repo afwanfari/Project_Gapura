@@ -10,8 +10,8 @@
     </section>
     </hero>
     <div>
-        <input type="text" id="searchInput" wire:model.debounce.300ms="search" class="w-full border rounded-md px-3 py-2"
-            placeholder="Cari Produk...">
+        <input type="text" id="searchInput" wire:model.debounce.300ms="search"
+            class="w-full border rounded-md px-3 py-2" placeholder="Cari Produk...">
         <table class="w-full border-2 border-collapse table-auto">
             <thead>
                 <tr>
@@ -27,17 +27,18 @@
             </thead>
             <tbody>
                 @foreach ($trainers as $key => $barang)
-                    <tr class="table-row">
-                        <td class="px-6 py-4 border-2">{{ $key + 1 }}</td>
-                        <td class="px-6 py-4 border-2">{{ $barang->idbarang }}</td>
-                        <td class="px-6 py-4 border-2">{{ $barang->jenis_barang }}</td>
-                        <td class="px-6 py-4 border-2">{{ $barang->nama }}</td>
-                    </tr>
+                <tr class="table-row">
+                    <td class="px-6 py-4 border-2">{{ $key + 1 }}</td>
+                    <td class="px-6 py-4 border-2">{{ $barang->idbarang }}</td>
+                    <td class="px-6 py-4 border-2">{{ $barang->jenis_barang }}</td>
+                    <td class="px-6 py-4 border-2">{{ $barang->nama }}</td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
         <div class="mt-4">
-            {{ $trainers->links('vendor.livewire.tailwind', ['forcePage' => $trainers->currentPage() + 1, 'scrollTo' => false]) }}
+            {{ $trainers->links('vendor.livewire.tailwind', ['forcePage' => $trainers->currentPage() + 1, 'scrollTo' =>
+            false]) }}
         </div>
     </div>
 

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Barang;
+use App\Models\Footer;
 use App\Models\Katalog;
 use Livewire\Component;
 
