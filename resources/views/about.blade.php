@@ -1,6 +1,6 @@
 <x-app-layout>
     @section('title', 'About | GAPURA')
     @section('hero')
-    @livewire('about')
+        @livewire('about')
     @endsection
 </x-app-layout>

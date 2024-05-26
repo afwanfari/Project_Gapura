@@ -50,7 +50,7 @@
             <div class="flex justify-center">
                 <a x-on:click="sectionproduksi = !sectionproduksi"
                     class="mt-4 text-2xl transition transform cursor-pointer"
-                    x-bind:class="{'mt-24': sectionproduksi, 'mt-24': !sectionproduksi}"
+                    x-bind:class="{ 'mt-24': sectionproduksi, 'mt-24': !sectionproduksi }"
                     x-transition:enter="transition ease-out duration-500"
                     x-transition:enter-start="opacity-0 transform translate-y-4"
                     x-transition:enter-end="opacity-100 transform translate-y-0"
@@ -97,7 +97,7 @@
             </div>
             <div class="flex justify-center">
                 <a x-on:click="sectionproduk = !sectionproduk" class="mt-4 text-2xl transition transform cursor-pointer"
-                    x-bind:class="{'mt-24': sectionproduk, 'mt-24': !sectionproduk}"
+                    x-bind:class="{ 'mt-24': sectionproduk, 'mt-24': !sectionproduk }"
                     x-transition:enter="transition ease-out duration-500"
                     x-transition:enter-start="opacity-0 transform translate-y-4"
                     x-transition:enter-end="opacity-100 transform translate-y-0"
@@ -139,7 +139,7 @@
             </div>
             <div class="flex justify-center">
                 <a x-on:click="sectiontrust = !sectiontrust" class="mt-4 text-2xl transition transform cursor-pointer"
-                    x-bind:class="{'mt-24': sectiontrust, 'mt-24': !sectiontrust}"
+                    x-bind:class="{ 'mt-24': sectiontrust, 'mt-24': !sectiontrust }"
                     x-transition:enter="transition ease-out duration-500"
                     x-transition:enter-start="opacity-0 transform translate-y-4"
                     x-transition:enter-end="opacity-100 transform translate-y-0"
@@ -153,19 +153,20 @@
     </section>
     <section class="relative px-6 pt-16 pb-20 lg:px-8 lg:pt-24 lg:pb-28 ">
         <div class="py-10 text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kami Juga Memproduksi Trainer Dengan
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kami Juga Memproduksi Trainer
+                Dengan
                 Spesifikasi Produk Import.</h2>
             <p class="max-w-2xl mx-auto mt-3 text-xl text-gray-500 sm:mt-4">
                 Silahkan Memesan Kepada Kami. Cintailah produk Indonesia</p>
         </div>
         <div class="relative mx-auto max-w-7xl">
             <div class="grid max-w-lg gap-8 mx-auto mt-12 select-none lg:max-w-none lg:grid-cols-3 ">
-                @foreach($barang as $barangCard)
+                @foreach ($barang as $barangCard)
                 <div
                     class="flex flex-col space-x-3 overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500 ">
-                    <a href="{{ route('product.detail', $barangCard->idbarang) }}">
+                    <a href="/produk/{{ $barangCard->idbarang }}">
                         <div class="py-1 text-sm bg-gray-300 ">
-                            <p>{{ $barangCard->jenis_barang}}</>
+                            <p>{{ $barangCard->jenis_barang }}</>
                             </p>
                         </div>
                         <div class="flex items-center justify-center py-2">
@@ -174,13 +175,13 @@
                         </div>
                         <div class="items-center text-center">
                             <p class="text-sm text-indigo-600">
-                                {{ $barangCard->idbarang }}|<span class="text-black">{{Str::limit($barangCard->nama,50)
-                                    }}</span></p>
+                                {{ $barangCard->idbarang }}|<span class="text-black">{{ Str::limit($barangCard->nama,
+                                    50) }}</span></p>
                             </p>
                         </div>
                         <div>
                             <p class="block py-2 mx-5 text-start text-slate-800 indent-3">
-                                {{Str::limit($barangCard->deskripsi,150) }}</p>
+                                {{ Str::limit($barangCard->deskripsi, 150) }}</p>
                         </div>
                     </a>
                 </div>
@@ -188,24 +189,25 @@
             </div>
         </div>
     </section>
-    <section class="flex justify-between items-center px-6 pt-5 pb-10 ">
+    <section class="flex justify-between items-center px-6 pt-5 pb-10">
         <div class="w-1/2 py-10 text-center justify-items-center">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kami Juga Mempunyai Produk Katalog
                 Silahkan Dicek.</h2>
         </div>
         <div class="w-1/2 justify-items-center mt-10">
-            <ul
-                class="px-4 space-y-1 border border-sky-500 shadow-lg justify-center items-center *:hover:underline-offset-1">
+            <ul class="px-4 space-y-1 border border-sky-500 shadow-lg justify-center items-center">
                 @foreach ($katalog as $list)
                 <li class="text-black hover:text-blue-500">
-                    <a href="#" class=" flex items-center gap-2 py-1 ">
-                        <p>{{$list->nama}}</p>
+                    <a href="{{ asset('/' . $list->file_path) }}" download="{{ $list->nama }}">
+                        <span>{{ $list->nama }}</span>
                     </a>
                 </li>
                 @endforeach
             </ul>
         </div>
     </section>
+
+
     <section class=" grid items-center justify-center pt-10 space-y-5">
         <div>
             <h2 class="py-5 text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-4xl">

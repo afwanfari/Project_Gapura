@@ -2,6 +2,6 @@
 <x-app-layout>
     @section('title', 'TRAINER | GAPURA')
     @section('hero')
-    @livewire('trainer-table')
+        @livewire('trainer-table')
     @endsection
 </x-app-layout>
