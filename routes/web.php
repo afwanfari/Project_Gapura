@@ -3,6 +3,7 @@
 use App\Models\Barang;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -21,6 +22,9 @@ Route::get('/contact', function () {
 Route::get('/produk', function () {
     return view('produk');
 })->name('produk');
+Route::get('/katalog', function () {
+    return view('katalog');
+})->name('katalog');
 Route::get('/trainer', function () {
     return view('trainer');
 })->name('trainer');

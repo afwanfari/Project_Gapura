@@ -1,9 +1,9 @@
 <header x-data="{ mobilenavOpen: false }"
     class="md:flex items-center select-none justify-between [&>*]:px-8 sticky top-0 z-50 bg-gray-800 text-white">
-    <div class="flex items-center justify-between h-20 ">
+    <div class="flex items-center justify-between h-20">
         <x-application-mark />
         <mobileicon class="md:hidden">
-            <a @click=" mobilenavOpen = !mobilenavOpen"
+            <a @click="mobilenavOpen = !mobilenavOpen"
                 class="flex items-center justify-center w-12 h-12 rounded-lg cursor-pointer hover:bg-gray-700">
                 <img x-show="!mobilenavOpen" class="w-6 h-6 select-none"
                     src="https://img.icons8.com/small/64/ffffff/menu.png" />
@@ -42,12 +42,16 @@
                     {{ __('Tentang Kami') }}
                 </x-nav-link>
             </li>
-            {{-- <li>
-            <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
-               {{ __('Kontak') }}
-            </x-nav-link>
-         </li> --}}
+            <li>
+                <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
+                    {{ __('Kontak') }}
+                </x-nav-link>
+            </li>
+            <li>
+                <x-nav-link href="{{ route('katalog') }}" :active="request()->routeIs('katalog')">
+                    {{ __('Katalog') }}
+                </x-nav-link>
+            </li>
         </ul>
     </nav>
-
 </header>
