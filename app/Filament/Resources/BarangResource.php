@@ -8,11 +8,6 @@ use App\Models\Barang;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\BarangResource\Pages;
@@ -30,43 +25,62 @@ class BarangResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('jenis_barang')
-                    ->options([
-                        'elektronika' => 'Elektronika',
-                        'mekatronika' => 'Mekatronika',
-                        'listrik' => 'Listrik',
-                        'perkapalan' => 'Perkapalan',
-                        'pesawat_udara' => 'Pesawat Udara',
-                        'kereta_api' => 'Kereta Api',
-                        'ukm' => 'Usaha Kecil Menengah (UKM)',
-                    ])
-                    ->required(),
-                Forms\Components\TextInput::make('nama')->required(),
-                Forms\Components\TextInput::make('id_barang')->required(),
-                Forms\Components\Textarea::make('deskripsi'),
+                Forms\Components\TextInput::make('idbarang')
+                ->required(),
+            Forms\Components\TextInput::make('nama')
+                ->required(),
+            Forms\Components\Select::make('jenis_barang')
+                ->label('Jenis Barang')
+                ->options(Barang::distinct()->pluck('jenis_barang', 'jenis_barang'))
+                ->searchable()
+                ->required(),
                 FileUpload::make('gambar')
-                    ->image()
-                    ->disk('public')
-                    ->directory('snappic')
-                    ->preserveFilenames('')
-                    ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
-                        // Mendapatkan nama asli file yang diupload
-                        $Name = $file->getClientOriginalName();
-
-                        // Menggabungkan nama file dengan custom prefix
-                        return 'barang-' . $Name;
-                    }),
+                ->image()
+                ->disk('public')
+                ->directory('snappic')
+                ->preserveFilenames('')
+                ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
+                    $Name = $file->getClientOriginalName();
+                    return 'barang-' . $Name;
+                }),
+            Forms\Components\Textarea::make('deskripsi')
+                ->required(),
+            Forms\Components\TextInput::make('komponen_terpasang')
+                ->required(),
+            Forms\Components\TextInput::make('dimensi')
+                ->required(),
+            Forms\Components\TextInput::make('bahan')
+                ->required(),
+            Forms\Components\TextInput::make('warna')
+                ->required(),
+            Forms\Components\TextInput::make('sumber_daya')
+                ->required(),
+            Forms\Components\Textarea::make('data_teknis')
+                ->required(),
+            Forms\Components\TextInput::make('aksesoris')
+                ->required(),
+            Forms\Components\TextInput::make('harga')
+                ->required(),
             ]);
     }
+
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('idbarang'),
                 Tables\Columns\TextColumn::make('nama'),
-                Tables\Columns\TextColumn::make('id_barang'),
                 Tables\Columns\TextColumn::make('jenis_barang'),
                 Tables\Columns\TextColumn::make('gambar'),
                 Tables\Columns\TextColumn::make('deskripsi'),
+                Tables\Columns\TextColumn::make('komponen_terpasang'),
+                Tables\Columns\TextColumn::make('dimensi'),
+                Tables\Columns\TextColumn::make('bahan'),
+                Tables\Columns\TextColumn::make('warna'),
+                Tables\Columns\TextColumn::make('sumber_daya'),
+                Tables\Columns\TextColumn::make('data_teknis'),
+                Tables\Columns\TextColumn::make('aksesoris'),
+                Tables\Columns\TextColumn::make('harga'),
             ])
             ->filters([
                 //

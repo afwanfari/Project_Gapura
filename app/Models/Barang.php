@@ -9,6 +9,8 @@ class Barang extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+    public $timestamps = false;
     protected $table = 'barang'; // Sesuaikan dengan nama tabel di database
     protected $fillable = [
         'nama',
@@ -16,6 +18,15 @@ class Barang extends Model
         'idbarang',
         'gambar',
         'deskripsi',
+        'komponen_terpasang',
+        'dimensi',
+        'bahan',
+        'warna',
+        'sumber_daya',
+        'data_teknis',
+        'aksesoris',
+        'harga',    
+
     ];
 
     public function getData()
