@@ -5,10 +5,11 @@ namespace App\Livewire;
 use App\Models\Barang;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithoutUrlPagination;
 
 class TrainerTable extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
     public $search = '';
     public $sortField = 'idbarang'; // Default sort field
@@ -16,13 +17,11 @@ class TrainerTable extends Component
 
     public function render()
     {
-        $searchTerm = '%' . $this->search . '%';
-
         // Fetch and filter trainers based on the search term, then apply sorting
-        $trainers = Barang::where('nama', 'like', $searchTerm)
-            ->orWhere('jenis_barang', 'like', $searchTerm)
+        $trainers = Barang::where('nama', 'like', '%' . $this->search . '%')
+            ->orWhere('jenis_barang', 'like', '%' . $this->search . '%')
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-            ->paginate(10); // You can adjust the pagination size as needed
+            ->paginate(20);
 
         return view('livewire.trainer-table', [
             'trainers' => $trainers,
@@ -37,7 +36,15 @@ class TrainerTable extends Component
         } else {
             $this->sortAsc = true;
         }
-        
+
         $this->sortField = $field;
+    }
+    public function search($value)
+    {
+        $this->search = $value;
+    }
+    public function updatingSearch()
+    {
+        $this->resetPage();
     }
 }

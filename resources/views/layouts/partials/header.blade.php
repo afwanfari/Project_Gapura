@@ -47,11 +47,7 @@
                     {{ __('Kontak') }}
                 </x-nav-link>
             </li>
-            <li>
-                <x-nav-link href="{{ route('katalog') }}" :active="request()->routeIs('katalog')">
-                    {{ __('Katalog') }}
-                </x-nav-link>
-            </li>
+
         </ul>
     </nav>
 </header>

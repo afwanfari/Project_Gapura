@@ -2,7 +2,9 @@
 
 use App\Models\Barang;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KatalogController;
 
+Route::get('/katalog/download/{filename}', [KatalogController::class, 'download'])->name('katalog.download');
 
 Route::get('/', function () {
     return view('home');
@@ -20,11 +22,8 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 Route::get('/produk', function () {
-    return view('produk');
+return view('produk');
 })->name('produk');
-Route::get('/katalog', function () {
-    return view('katalog');
-})->name('katalog');
 Route::get('/trainer', function () {
     return view('trainer');
 })->name('trainer');

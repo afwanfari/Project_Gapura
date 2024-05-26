@@ -1,5 +1,6 @@
 <div>
     <!-- trainer-table.blade.php -->
+
     <section
         class="grid mb-10 bg-gray-700 text-white text-center bg-cover z-10 relative bg-[url('https://live.staticflickr.com/65535/49909538937_3255dcf9e7_b.jpg')]">
         <div class="w-full h-full col-start-1 row-start-1 bg-gray-800 bg-opacity-40"></div>
@@ -9,8 +10,8 @@
     </section>
     </hero>
     <div>
-        <!-- Your existing HTML code -->
-
+        <input type="text" id="searchInput" wire:model.debounce.300ms="search" class="w-full border rounded-md px-3 py-2"
+            placeholder="Cari Produk...">
         <table class="w-full border-2 border-collapse table-auto">
             <thead>
                 <tr>
@@ -36,7 +37,8 @@
             </tbody>
         </table>
         <div class="mt-4">
-            {{ $trainers->links() }}
+            {{ $trainers->links('vendor.livewire.tailwind', ['forcePage' => $trainers->currentPage() + 1, 'scrollTo' => false]) }}
         </div>
     </div>
+
 </div>

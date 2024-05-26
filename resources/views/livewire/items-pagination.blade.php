@@ -17,7 +17,7 @@
             @endforeach
         </div>
         <div class="py-5 justify-items-center">
-            {{ $berita->links('vendor.pagination.simple-tailwind', ['scrollTo' => false]) }}
+            {{ $berita->links('vendor.livewire.tailwind', ['forcePage' => $berita->currentPage() + 1, 'scrollTo' => false]) }}
         </div>
     </div>
 

@@ -9,9 +9,7 @@ use App\Models\Barang;
 
 class ProdukList extends Component
 {
-    use WithPagination;
-    use WithoutUrlPagination;
-    protected $paginationTheme = 'bootstrap';
+    use WithPagination, WithoutUrlPagination; 
 
     protected $queryString = ['page'];
     public $selectedJenis = '';

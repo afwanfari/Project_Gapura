@@ -4,7 +4,8 @@
                 class="grid mb-10 bg-gray-700 text-white text-center bg-cover z-10 relative bg-[url('https://live.staticflickr.com/65535/49909538937_3255dcf9e7_b.jpg')]">
                 <div class="w-full h-full col-start-1 row-start-1 bg-gray-800 bg-opacity-40"></div>
                 <div class="col-start-1 row-start-1 px-10 py-24">
-                    <h1 class="py-5 text-4xl font-bold leading-none tracking-tight underline underline-offset-8">PRODDUK KAMI
+                    <h1 class="py-5 text-4xl font-bold leading-none tracking-tight underline underline-offset-8">PRODDUK
+                        KAMI
                     </h1>
             </section>
             </hero>
@@ -51,7 +52,7 @@
                 </div>
             </div>
             <div class="items-center justify-center mt-4">
-                {{ $barangs->links('vendor.livewire.tailwind', ['forcePage' => $barangs->currentPage() + 1]) }}
+                {{ $barangs->links('vendor.livewire.tailwind', ['forcePage' => $barangs->currentPage() + 1, 'scrollTo' => false]) }}
             </div>
         </div>
     </div>
