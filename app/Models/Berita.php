@@ -9,11 +9,16 @@ class Berita extends Model
 {
     use HasFactory;
     protected $primaryKey = 'idberita';
+    public $timestamps = false;
+    protected $table = 'berita';
 
     protected $fillable = [
         'idberita',
         'judul',
         'gambar',
+        'waktu',
+        'orang',
+        
         // tambahkan kolom-kolom lain yang Anda butuhkan di sini
     ];
 }

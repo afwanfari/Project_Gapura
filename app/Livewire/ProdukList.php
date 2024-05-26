@@ -26,6 +26,7 @@ class ProdukList extends Component
     {
         $this->selectedJenis = $jenis;
         $this->resetPage(); // Reset halaman pagination
+        
     }
 
     public function render()

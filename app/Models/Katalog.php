@@ -10,6 +10,8 @@ class Katalog extends Model
     use HasFactory;
 
     protected $table = 'katalog';
+    public $timestamps = false;
+    protected $primaryKey = 'idkatalog';
 
     protected $fillable = [
         'idkatalog',
