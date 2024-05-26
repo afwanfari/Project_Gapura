@@ -17,6 +17,7 @@ class ProdukList extends Component
     public $jenisList = [];
     public $page = 1;
 
+
     public function mount()
     {
         $this->jenisList = Barang::distinct()->pluck('jenis_barang');

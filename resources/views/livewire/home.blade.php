@@ -163,7 +163,7 @@
                 @foreach($barang as $barangCard)
                 <div
                     class="flex flex-col space-x-3 overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500 ">
-                    <a href="/produk/{{$barangCard->idbarang}}">
+                    <a href="{{ route('product.detail', $barangCard->idbarang) }}">
                         <div class="py-1 text-sm bg-gray-300 ">
                             <p>{{ $barangCard->jenis_barang}}</>
                             </p>
