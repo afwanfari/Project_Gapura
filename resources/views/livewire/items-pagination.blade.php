@@ -12,7 +12,10 @@
             @foreach ($berita as $beritaCard)
                 <div class="flex flex-col items-center space-y-2 shadow-lg">
                     <img src="{{ asset('/' . $beritaCard->gambar) }}" alt="{{ $beritaCard->judul }}"
-                        class="w-full h-48 object-cover">
+                        class="w-full h-60 object-cover rounded-lg">
+                    <p class="text-sm text-indigo-600">
+                        {{ $beritaCard->judul }}<span class="text-black"></span>
+                    </p>
                 </div>
             @endforeach
         </div>

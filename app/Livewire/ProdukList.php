@@ -10,6 +10,7 @@ use App\Models\Barang;
 class ProdukList extends Component
 {
     use WithPagination;
+    use WithoutUrlPagination;
 
     public $selectedJenis = '';
     public $jenisList = [];
@@ -58,7 +59,7 @@ class ProdukList extends Component
             'jenisList' => $this->jenisList,
         ]);
     }
-    
+
     public function showDetail($id)
     {
         $barangDetail = Barang::find($id);

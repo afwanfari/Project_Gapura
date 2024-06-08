@@ -2,7 +2,7 @@
     <div>
         <!-- resources/views/livewire/footer-component.blade.php -->
 
-        <footer class="bg-gray-800 text-white py-2 flex-grow">
+        <footer class="bg-sky-900 text-white py-2 flex-grow">
             <div class="flex flex-wrap justify-center items-center px-4 mx-auto overflow-hidden lg:flex-row">
                 <div class="block w-full pl-10 mt-6 text-sm lg:w-3/4 sm:flex lg:mt-0 justify-between">
                     <ul class="flex flex-col w-full p-0 font-medium text-center list-none">
