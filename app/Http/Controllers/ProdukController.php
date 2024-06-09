@@ -19,4 +19,14 @@ class ProdukController extends Controller
         }
         return view('detail', compact('product'));
     }
+    public function detail($idbarang)
+    {
+        $product = DB::table('barang')->where('idbarang', $idbarang)->first();
+
+        if (!$product) {
+            abort(404); // Atau lakukan tindakan lain sesuai kebutuhan Anda
+        }
+
+        return view('detail', compact('product'));
+    }
 }

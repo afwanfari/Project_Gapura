@@ -1,5 +1,5 @@
 <header x-data="{ mobilenavOpen: false }"
-    class="md:flex items-center select-none justify-between [&>*]:px-8 sticky top-0 z-50 bg-gray-800 text-white">
+    class="md:flex items-center select-none justify-between [&>*]:px-8 sticky top-0 z-50 bg-sky-700 text-white">
     <div class="flex items-center justify-between h-20">
         <x-application-mark />
         <mobileicon class="md:hidden">
@@ -29,7 +29,7 @@
             </li>
             <li>
                 <x-nav-link href="{{ route('trainer') }}" :active="request()->routeIs('trainer')">
-                    {{ __('Trainer') }}
+                    {{ __('Daftar Produk') }}
                 </x-nav-link>
             </li>
             <li>

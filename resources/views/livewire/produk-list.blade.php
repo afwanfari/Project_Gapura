@@ -24,15 +24,15 @@
         </div>
         <!-- Main content for displaying products -->
         <div class="w-3/4 mx-2.5 mt-12 select-none">
-            <div class="mb-4">
-                <input type="text" wire:model.live="search" wire:click="resetPage"
-                    placeholder="Search for products..." class="px-4 py-2 border rounded w-full">
+            <div class="mb-4 flex justify-start items-center">
+                <input type="text" wire:model.live="search" placeholder="Search for Anything..."
+                    class="px-4 py-2 placeholder:italic border rounded-full h-16 w-1/3 fill-slate-300">
             </div>
             <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-2">
                 @foreach ($barangs as $barangCard)
                     <div
                         class="flex flex-col space-x-3 overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500">
-                        <a href="/produk/{{ $barangCard->idbarang }}">
+                        <a href="{{ route('produk.detail', ['idbarang' => $barangCard->idbarang]) }}">
                             <div class="flex items-center justify-center py-2">
                                 <img class="object-cover h-28 w-30" src="{{ asset('/' . $barangCard->gambar) }}"
                                     alt="{{ $barangCard->nama }}">
@@ -45,14 +45,15 @@
                             </div>
                             <div>
                                 <p class="block py-2 mx-5 text-start text-slate-800 indent-3">
-                                    {{ Str::limit($barangCard->deskripsi, 150) }}</p>
+                                    {{ Str::limit($barangCard->deskripsi, 150) }}
+                                </p>
                             </div>
                         </a>
                     </div>
                 @endforeach
             </div>
             <div class="items-center justify-center mt-4">
-                {{ $barangs->links('vendor.livewire.tailwind') }}
+                {{ $barangs->links('vendor.livewire.tailwind', ['forcePage' => $barangs->currentPage() + 1, 'scrollTo' => false]) }}
             </div>
         </div>
     </div>

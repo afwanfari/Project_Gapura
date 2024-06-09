@@ -1,5 +1,5 @@
 <x-app-layout>
-    @section('title', 'About | GAPURA')
+    @section('title', 'ABOUT | GAPURA')
     @section('hero')
         @livewire('about')
     @endsection

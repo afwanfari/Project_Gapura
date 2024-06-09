@@ -8,13 +8,14 @@
         </div>
     </section>
 
-    <div class="mb-4">
-        <input type="text" wire:model.live="search" placeholder="Cari...." class="px-4 py-2 border rounded">
+    <div class="mb-4 flex justify-center items-center">
+        <input type="text" wire:model.live="search" placeholder="Search for Anything..."
+            class="px-4 py-2 placeholder:italic border rounded-full h-16  w-1/4 fill-slate-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1">
     </div>
 
-    <div>
-        <table id="trainerTable" class="w-full border-2 border-collapse table-auto">
-            <thead>
+    <div class="flex items-center justify-center">
+        <table id="trainerTable" class="w-3/4 border-1 border-collapse table-auto justify-items-center select-none">
+            <thead class="bg-sky-300">
                 <tr>
                     <th class="px-6 py-3 border-2">No</th>
                     <th class="px-6 py-3 border-2">Kode Produk</th>
@@ -24,15 +25,18 @@
             </thead>
             <tbody>
                 @foreach ($trainers as $key => $barang)
-                    <tr class="table-row">
+                    <tr
+                        class="table-row odd:bg-white even:bg-slate-100 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-100 hover:bg-sky-400 duration-200 cursor-pointer select-none">
                         <td class="px-6 py-4 border-2">{{ $loop->iteration }}</td>
-                        <td class="px-6 py-4 border-2"><a
-                                href="{{ route('product.detail', $barang->idbarang) }}">{{ $barang->idbarang }}</a></td>
-                        <td class="px-6 py-4 border-2"><a
-                                href="{{ route('product.detail', $barang->idbarang) }}">{{ $barang->jenis_barang }}</a>
+                        <td class="px-6 py-4 border-2"> <a
+                                href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}">{{ $barang->idbarang }}</a>
                         </td>
-                        <td class="px-6 py-4 border-2"><a
-                                href="{{ route('product.detail', $barang->idbarang) }}">{{ $barang->nama }}</a></td>
+                        <td class="px-6 py-4 border-2"> <a
+                                href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}">{{ $barang->jenis_barang }}</a>
+                        </td>
+                        <td class="px-6 py-4 border-2"> <a
+                                href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}">{{ $barang->nama }}</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
