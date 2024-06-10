@@ -12,17 +12,19 @@ use Filament\Tables\Table;
 class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
+    
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
+
     protected static ?string $navigationIcon = 'heroicon-o-envelope';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                // Define read-only fields if needed.
             ]);
     }
 
@@ -35,22 +37,22 @@ class ContactResource extends Resource
                 Tables\Columns\TextColumn::make('message'),
             ])
             ->filters([
-                //
+                // Define any filters if needed.
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                // Remove or disable the edit action to make it read-only.
+                // Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                // Remove or disable the delete bulk action to make it read-only.
+                // Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
     public static function getRelations(): array
     {
         return [
-            //
+            // Define any relationships if needed.
         ];
     }
 
@@ -58,8 +60,19 @@ class ContactResource extends Resource
     {
         return [
             'index' => Pages\ListContacts::route('/'),
-            'create' => Pages\CreateContact::route('/create'),
-            'edit' => Pages\EditContact::route('/{record}/edit'),
+            // Remove or disable create and edit routes to make it read-only.
+            // 'create' => Pages\CreateContact::route('/create'),
+            // 'edit' => Pages\EditContact::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('Contacts');
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return true;
     }
 }
