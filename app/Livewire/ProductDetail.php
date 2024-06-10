@@ -13,12 +13,11 @@ class ProductDetail extends Component
     public function mount($idbarang)
     {
         $this->productId = $idbarang;
-        // Lakukan query untuk mendapatkan data barang berdasarkan idbarang
-        $this->product = DB::table('barang')->where('idbarang', $this->productId)->first();
-
-        // Periksa apakah produk ditemukan atau tidak
+        $this->product = DB::table('barang')
+            ->where('idbarang', $this->productId)
+            ->first();
         if (!$this->product) {
-            abort(404); // Atau lakukan tindakan lain sesuai kebutuhan Anda
+            abort(404); 
         }
     }
 

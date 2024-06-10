@@ -18,7 +18,5 @@ class Berita extends Model
         'gambar',
         'waktu',
         'orang',
-        
-        // tambahkan kolom-kolom lain yang Anda butuhkan di sini
     ];
 }

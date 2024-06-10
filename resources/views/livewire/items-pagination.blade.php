@@ -10,18 +10,17 @@
     <div class="flex-wrap py-10 mx-10 mt-12 select-none justify-items-center">
         <div class="grid grid-cols-4 gap-4 mx-5 overflow-hidden ">
             @foreach ($berita as $beritaCard)
-            <div class="flex flex-col items-center space-y-2 shadow-lg rounded-lg">
-                <img src="{{ asset('/' . $beritaCard->gambar) }}" alt="{{ $beritaCard->judul }}"
-                    class="w-full h-60 object-cover rounded-lg">
-                <p class="text-lg">
-                    {{ $beritaCard->judul }}
-                </p>
-            </div>
+                <div class="flex flex-col items-center space-y-2 shadow-lg rounded-lg">
+                    <img src="{{ asset('/' . $beritaCard->gambar) }}" alt="{{ $beritaCard->judul }}"
+                        class="w-full h-60 object-cover rounded-lg">
+                    <p class="text-lg">
+                        {{ $beritaCard->judul }}
+                    </p>
+                </div>
             @endforeach
         </div>
         <div class="py-5 justify-items-center">
-            {{ $berita->links('vendor.livewire.tailwind', ['forcePage' => $berita->currentPage() + 1, 'scrollTo' =>
-            false]) }}
+            {{ $berita->links('vendor.livewire.tailwind', ['forcePage' => $berita->currentPage() + 1, 'scrollTo' => false]) }}
         </div>
     </div>
 

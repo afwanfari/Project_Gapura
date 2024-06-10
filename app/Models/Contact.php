@@ -2,9 +2,6 @@
 
 namespace App\Models;
 
-// app/Models/Contact.php
-namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

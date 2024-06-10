@@ -43,34 +43,23 @@ class UKMResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-        ->columns([
-            Tables\Columns\TextColumn::make('idbarang'),
-            Tables\Columns\TextColumn::make('nama'),
-            Tables\Columns\TextColumn::make('jenis_barang'),
-            Tables\Columns\TextColumn::make('gambar'),
-            Tables\Columns\TextColumn::make('deskripsi'),
-        ])
-        ->filters([
-            Tables\Filters\SelectFilter::make('jenis_barang')
-                ->label('Jenis Barang')
-                ->options(UKM::distinct()->pluck('jenis_barang', 'jenis_barang'))
-                ->default('Usaha Kecil Menengah (UKM)') // Set the default value for the filter to 'UKM'
-                ->query(function ($query, $data) {
-                    return $query->where('jenis_barang', $data);
-                }),
-        ])
-        ->actions([
-            Tables\Actions\EditAction::make(),
-        ])
-        ->bulkActions([
-            Tables\Actions\DeleteBulkAction::make(),
-        ]);
+            ->columns([Tables\Columns\TextColumn::make('idbarang'), Tables\Columns\TextColumn::make('nama'), Tables\Columns\TextColumn::make('jenis_barang'), Tables\Columns\TextColumn::make('gambar'), Tables\Columns\TextColumn::make('deskripsi')])
+            ->filters([
+                Tables\Filters\SelectFilter::make('jenis_barang')
+                    ->label('Jenis Barang')
+                    ->options(UKM::distinct()->pluck('jenis_barang', 'jenis_barang'))
+                    ->default('Usaha Kecil Menengah (UKM)')
+                    ->query(function ($query, $data) {
+                        return $query->where('jenis_barang', $data);
+                    }),
+            ])
+            ->actions([Tables\Actions\EditAction::make()])
+            ->bulkActions([Tables\Actions\DeleteBulkAction::make()]);
     }
 
     public static function getRelations(): array
     {
         return [
-                //
             ];
     }
 
