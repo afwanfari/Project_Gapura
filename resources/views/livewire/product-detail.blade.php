@@ -25,92 +25,111 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Deskripsi
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                                            {!! wordwrap($product->deskripsi, 150, '<br>', true) !!}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Dimensi
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                                             @php
-                                                $dimensiLines = explode('-', $product->dimensi);
+                                                $deskripsiLines = explode("\n", $product->deskripsi); // Gunakan newline sebagai pemisah
                                             @endphp
-                                            @foreach ($dimensiLines as $line)
-                                                {{ $line }}<br>
-                                            @endforeach
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Bahan</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                                            @php
-                                                $bahanLines = explode('-', $product->bahan);
-                                            @endphp
-                                            @foreach ($bahanLines as $line)
-                                                {{ $line }}<br>
-                                            @endforeach
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Warna</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                                            @php
-                                                $warnaLines = explode('-', $product->warna);
-                                            @endphp
-                                            @foreach ($warnaLines as $line)
-                                                {{ $line }}<br>
-                                            @endforeach
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Sumber
-                                            Daya</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                                            @php
-                                                $sumberDayaLines = explode('-', $product->sumber_daya);
-                                            @endphp
-                                            @foreach ($sumberDayaLines as $line)
-                                                {{ $line }}<br>
-                                            @endforeach
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Data
-                                            Teknis</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                                            @php
-                                                $dataTeknisLines = explode('-', $product->data_teknis);
-                                            @endphp
-                                            @foreach ($dataTeknisLines as $line)
-                                                {{ $line }}<br>
-                                            @endforeach
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Aksesoris
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                                            @php
-                                                $aksesorisLines = explode('-', $product->aksesoris);
-                                            @endphp
-                                            @foreach ($aksesorisLines as $line)
-                                                {{ $line }}<br>
-                                            @endforeach
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Harga
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                                            @php
-                                                $harga = explode('-', $product->harga);
-                                            @endphp
-                                            @foreach ($harga as $line)
-                                                {{ $line }}<br>
+                                            @foreach ($deskripsiLines as $line)
+                                                @if (trim($line) !== '')
+                                                    {{-- Hanya tampilkan baris yang bukan spasi --}}
+                                                    @if (strpos($line, '•') !== 0)
+                                                        {{-- Jika baris tidak diawali dengan tanda • --}}
+                                                        <strong>{{ trim($line) }}</strong><br> {{-- Tampilkan teks yang dicetak tebal --}}
+                                                    @else
+                                                        {{ trim($line) }}<br> {{-- Tampilkan baris dengan tanda • --}}
+                                                    @endif
+                                                @endif
                                             @endforeach
                                         </td>
                                     </tr>
 
+                                    @if ($product->jenis_barang !== 'Usaha Kecil Menengah (UKM)')
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">
+                                                Dimensi
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                                @php
+                                                    $dimensiLines = explode('-', $product->dimensi);
+                                                @endphp
+                                                @foreach ($dimensiLines as $line)
+                                                    {{ $line }}<br>
+                                                @endforeach
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Bahan
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                                @php
+                                                    $bahanLines = explode('-', $product->bahan);
+                                                @endphp
+                                                @foreach ($bahanLines as $line)
+                                                    {{ $line }}<br>
+                                                @endforeach
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Warna
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                                @php
+                                                    $warnaLines = explode('-', $product->warna);
+                                                @endphp
+                                                @foreach ($warnaLines as $line)
+                                                    {{ $line }}<br>
+                                                @endforeach
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Sumber
+                                                Daya</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                                @php
+                                                    $sumberDayaLines = explode('-', $product->sumber_daya);
+                                                @endphp
+                                                @foreach ($sumberDayaLines as $line)
+                                                    {{ $line }}<br>
+                                                @endforeach
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Data
+                                                Teknis</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                                @php
+                                                    $dataTeknisLines = explode('-', $product->data_teknis);
+                                                @endphp
+                                                @foreach ($dataTeknisLines as $line)
+                                                    {{ $line }}<br>
+                                                @endforeach
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">
+                                                Aksesoris
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                                @php
+                                                    $aksesorisLines = explode('-', $product->aksesoris);
+                                                @endphp
+                                                @foreach ($aksesorisLines as $line)
+                                                    {{ $line }}<br>
+                                                @endforeach
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Harga
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                                @php
+                                                    $harga = explode('-', $product->harga);
+                                                @endphp
+                                                @foreach ($harga as $line)
+                                                    {{ $line }}<br>
+                                                @endforeach
+                                            </td>
+                                        </tr>
+                                    @endif
                                 </tbody>
                             </table>
                             <div class="px-5 py-5 text-center">
@@ -125,5 +144,4 @@
             </div>
         @endsection
     </x-app-layout>
-
 </div>

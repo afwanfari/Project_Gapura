@@ -27,7 +27,6 @@ class UKMResource extends Resource
             Forms\Components\TextInput::make('idbarang')->required(),
             Forms\Components\TextInput::make('nama')->required(),
             Forms\Components\Hidden::make('jenis_barang')->default('Usaha Kecil Menengah (UKM)')->required(),
-
             FileUpload::make('gambar')
                 ->image()
                 ->disk('public')

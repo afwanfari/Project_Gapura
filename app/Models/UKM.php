@@ -32,4 +32,5 @@ class UKM extends Model
 
         return $result;
     }
+    
 }
