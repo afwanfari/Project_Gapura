@@ -13,9 +13,6 @@ Route::get('/about', function () {
 Route::get('/galery', function () {
     return view('galery');
 })->name('galery');
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
 Route::get('/produk', function () {
     return view('produk');
 })->name('produk');

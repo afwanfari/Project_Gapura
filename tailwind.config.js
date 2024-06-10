@@ -1,12 +1,14 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+// tailwind.config.js
+module.exports = {
     content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
+        "./src/**/*.{js,jsx,ts,tsx}", // Adjust the path according to your project structure
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: ["Helvetica", "Arial", "sans-serif"], // Add Helvetica to the sans font family
+            },
+        },
     },
     plugins: [],
 };

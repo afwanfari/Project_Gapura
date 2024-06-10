@@ -7,25 +7,35 @@
             </h1>
         </div>
     </section>
-    <section x-data="{ mobileSidebarOpen: true }" class="flex flex-row mx-auto mt-6 max-w-7xl">
-        <mobileSidebarNav class="relative z-10 mx-auto mb-6 md:hidden flex-row">
-            <a @click="mobileSidebarOpen = !mobileSidebarOpen"
-                class="flex items-center p-3 font-bold rounded-lg cursor-pointer select-none hover:bg-gray-200">
-                <span>Menu</span>
-                <img x-bind:class="mobileSidebarOpen && 'rotate-180 duration-300'" class="w-4 ml-1.5"
-                    src="https://img.icons8.com/small/32/000000/expand-arrow.png" />
-            </a>
-        </mobileSidebarNav>
+    <div class="flex flex-col md:flex-row">
         <!-- Sidebar for filtering -->
-        <div x-show="mobileSidebarOpen" x-cloak x-transition:enter="duration-300 ease-out"
-            x-transition:enter-start="opacity-0 -mt-96" x-transition:enter-end="opacity-100 mt-0"
-            class="w-1/4 mt-10 border-gray-200">
+        <div x-data="{ mobileMenuOpen: false }" class="w-1/4 mt-10 border-gray-200 font-bold">
             <ul class="px-4 space-y-4">
-                @foreach ($jenisList as $jenis)
+                @php
+                $orderedJenisList = [
+                'Usaha Kecil Menengah (UKM)',
+                'Mekatronika',
+                'Listrik',
+                'Elektronika',
+                'TKJ',
+                'Tools',
+                'Pendingin',
+                'Energi terbarukan',
+                'Lab Bahasa',
+                'Otomotif & Ototronik Mobil',
+                'Otomotif & Ototronik Sepeda Motor',
+                'Alat Berat, Bus, Truk',
+                'Perkapalan',
+                'Kereta Api',
+                'Pesawat Udara',
+                ];
+                @endphp
+                @foreach ($orderedJenisList as $jenis)
                 <li>
                     <a href="#" wire:click.prevent="filterByJenis('{{ $jenis }}')"
                         class="flex items-center justify-start block gap-2 py-3 border-2 rounded-lg hover:bg-sky-600 hover:text-white">
-                        <img class="w-6 h-6 mx-2 select-none" src="{{ asset('images/' . strtolower($jenis) . '.png') }}"
+                        <img class="w-6 h-6 mx-2 select-none"
+                            src="{{ asset('images/' . strtolower(str_replace(' ', '_', $jenis)) . '.png') }}"
                             alt="{{ $jenis }}">
                         <span>{{ $jenis }}</span>
                     </a>
@@ -49,9 +59,9 @@
                                 alt="{{ $barangCard->nama }}">
                         </div>
                         <div class="items-center text-center">
-                            <p class="text-sm text-indigo-600">
-                                {{ $barangCard->idbarang }}|<span class="text-black">{{ Str::limit($barangCard->nama,
-                                    50) }}</span>
+                            <p class="text-sm text-sky-600 font-bold ">
+                                {{ $barangCard->idbarang }} | <span class="text-black font-bold">{{
+                                    Str::limit($barangCard->nama, 50) }}</span>
                             </p>
                         </div>
                         <div>
@@ -68,5 +78,6 @@
                 => false]) }}
             </div>
         </div>
-    </section>
+    </div>
+
 </div>

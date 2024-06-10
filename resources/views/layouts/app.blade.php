@@ -14,12 +14,13 @@
     @vite('resources/css/app.css')
     <!-- Script -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Livewire Styles -->
     @livewireStyles
 
 </head>
 
-<body class="font-serif antialiased">
+<body class="font-Helvetica">
     @include('layouts.partials.header')
     @yield('hero')
     <main class="container flex flex-grow px-5 mx-auto mt-16">

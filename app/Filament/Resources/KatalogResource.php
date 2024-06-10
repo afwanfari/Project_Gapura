@@ -8,20 +8,18 @@ use App\Models\Katalog;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
-use Illuminate\Database\Eloquent\Builder;
-use Filament\Forms\ComponentContainer;
 use App\Filament\Resources\KatalogResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\KatalogResource\RelationManagers;
 
 class KatalogResource extends Resource
 {
     protected static ?string $model = Katalog::class;
     
-
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+    protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
     public static function form(Form $form): Form
     {
@@ -34,7 +32,7 @@ class KatalogResource extends Resource
                     FileUpload::make('file_path')
                 ->disk('public')
                 ->directory('katalog')
-                ->rules('required', 'mimes:xlsx,xls')
+                ->rules('required', 'mimes:xlsx,xls,doc,docx')
             ]);
     }
 

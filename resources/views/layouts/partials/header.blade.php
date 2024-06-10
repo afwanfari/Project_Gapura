@@ -42,11 +42,6 @@
                     {{ __('Tentang Kami') }}
                 </x-nav-link>
             </li>
-            <li>
-                <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
-                    {{ __('Kontak') }}
-                </x-nav-link>
-            </li>
         </ul>
     </nav>
 </header>

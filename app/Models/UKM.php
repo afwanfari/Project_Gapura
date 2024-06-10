@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Barang extends Model
+class UKM extends Model
 {
     use HasFactory;
 
@@ -18,14 +18,6 @@ class Barang extends Model
         'idbarang',
         'gambar',
         'deskripsi',
-        'komponen_terpasang',
-        'dimensi',
-        'bahan',
-        'warna',
-        'sumber_daya',
-        'data_teknis',
-        'aksesoris',
-        'harga',    
 
     ];
 
@@ -40,4 +32,5 @@ class Barang extends Model
 
         return $result;
     }
+    
 }
