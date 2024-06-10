@@ -22,29 +22,49 @@
                             <table class="min-w-full divide-y divide-gray-200 table-fixed w-3/10">
                                 <tbody class="bg-white divide-y divide-gray-200">
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Deskripsi
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">
+                                            @if ($product->jenis_barang !== 'Usaha Kecil Menengah (UKM)')
+                                                Deskripsi
+                                            @else
+                                                Spesifikasi
+                                            @endif
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                                             @if ($product->jenis_barang !== 'Usaha Kecil Menengah (UKM)')
                                                 {!! wordwrap($product->deskripsi, 150, '<br>', true) !!}
                                             @else
                                                 @php
-                                                    $deskripsiLines = explode("\n", $product->deskripsi); // Gunakan newline sebagai pemisah
+                                                    $deskripsiLines = explode("\n", $product->deskripsi);
                                                 @endphp
+
                                                 @foreach ($deskripsiLines as $line)
                                                     @if (trim($line) !== '')
-                                                        {{-- Hanya tampilkan baris yang bukan spasi --}}
-                                                        @if (strpos($line, '•') !== 0)
-                                                            {{-- Jika baris tidak diawali dengan tanda • --}}
-                                                            <strong>{{ trim($line) }}</strong><br> {{-- Tampilkan teks yang dicetak tebal --}}
+                                                        @php
+                                                            $words = explode(' ', $line);
+                                                            $wordCount = count($words);
+                                                        @endphp
+
+                                                        @if ($wordCount > 20)
+                                                            @php
+                                                                $chunks = array_chunk($words, 20);
+                                                            @endphp
+
+                                                            @foreach ($chunks as $chunk)
+                                                                {{ implode(' ', $chunk) }}<br>
+                                                            @endforeach
                                                         @else
-                                                            {{ trim($line) }}<br> {{-- Tampilkan baris dengan tanda • --}}
+                                                            @if (strpos($line, '•') !== 0)
+                                                                <strong>{{ trim($line) }}</strong><br>
+                                                            @else
+                                                            @endif
                                                         @endif
                                                     @endif
                                                 @endforeach
+
                                             @endif
                                         </td>
                                     </tr>
+
 
                                     @if ($product->jenis_barang !== 'Usaha Kecil Menengah (UKM)')
                                         <tr>

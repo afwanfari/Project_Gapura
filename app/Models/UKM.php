@@ -11,7 +11,7 @@ class UKM extends Model
 
     protected $primaryKey = 'id';
     public $timestamps = false;
-    protected $table = 'barang'; // Sesuaikan dengan nama tabel di database
+    protected $table = 'barang';
     protected $fillable = [
         'nama',
         'jenis_barang',

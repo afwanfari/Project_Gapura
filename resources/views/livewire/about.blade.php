@@ -1,5 +1,4 @@
 <div>
-    <!-- about.blade.php -->
     <section class="flex justify-center items-center px-6 pt-5 pb-10 !md:flex-col ">
         <div class="w-1/2 py-10 mx-5 text-center justify-items-center">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Latar Belakang</h2>

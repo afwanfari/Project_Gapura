@@ -14,7 +14,7 @@ use App\Filament\Resources\KatalogResource\Pages;
 class KatalogResource extends Resource
 {
     protected static ?string $model = Katalog::class;
-    
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
@@ -23,45 +23,23 @@ class KatalogResource extends Resource
 
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                Forms\Components\Textarea::make('nama')
-                ->required(),
-            Forms\Components\TextArea::make('deskripsi')
-                ->required(),
-                    FileUpload::make('file_path')
-                ->disk('public')
-                ->directory('katalog')
-                ->rules('required', 'mimes:xlsx,xls,doc,docx')
-            ]);
+        return $form->schema([Forms\Components\Textarea::make('nama')->required(), Forms\Components\TextArea::make('deskripsi')->required(), FileUpload::make('file_path')->disk('public')->directory('katalog')->rules('required', 'mimes:xlsx,xls,doc,docx')]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
-                Tables\Columns\TextColumn::make('nama'),
-                Tables\Columns\TextColumn::make('deskripsi'),
-                Tables\Columns\TextColumn::make('file_path'),
-            ])
+            ->columns([Tables\Columns\TextColumn::make('nama'), Tables\Columns\TextColumn::make('deskripsi'), Tables\Columns\TextColumn::make('file_path')])
             ->filters([
-                //
             ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
+            ->actions([Tables\Actions\EditAction::make()])
+            ->bulkActions([Tables\Actions\BulkActionGroup::make([Tables\Actions\DeleteBulkAction::make()])]);
     }
 
     public static function getRelations(): array
     {
         return [
-            //
-        ];
+            ];
     }
 
     public static function getPages(): array

@@ -8,7 +8,6 @@
         </div>
     </section>
     <div class="flex flex-col md:flex-row">
-        <!-- Sidebar for filtering -->
         <div x-data="{ mobileMenuOpen: false }" class="w-1/4 mt-10 border-gray-200 font-bold">
             <ul class="px-4 space-y-4">
                 @php
@@ -43,7 +42,6 @@
                 @endforeach
             </ul>
         </div>
-        <!-- Main content for displaying products -->
         <div class="w-3/4 mx-2.5 mt-12 select-none">
             <div class="mb-4 flex justify-start items-center">
                 <input type="text" wire:model.live="search" placeholder="Search for Anything..."
