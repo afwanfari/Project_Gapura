@@ -22,8 +22,12 @@ use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 class GaleriResource extends Resource
 {
     protected static ?string $model = Berita::class;
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
 
     public static function form(Form $form): Form
     {

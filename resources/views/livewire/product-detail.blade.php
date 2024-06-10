@@ -98,6 +98,18 @@
                                             @endforeach
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Harga
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                            @php
+                                                $harga = explode('-', $product->harga);
+                                            @endphp
+                                            @foreach ($harga as $line)
+                                                {{ $line }}<br>
+                                            @endforeach
+                                        </td>
+                                    </tr>
 
                                 </tbody>
                             </table>

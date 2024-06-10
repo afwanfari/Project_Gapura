@@ -17,8 +17,12 @@ use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class BarangResource extends Resource
 {
+    public static function getNavigationBadge(): ?string
+{
+    return static::getModel()::count();
+}
     protected static ?string $model = Barang::class;
-
+    protected static ?string $recordTitleAttribute = 'barang';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -45,22 +49,22 @@ class BarangResource extends Resource
                 }),
             Forms\Components\Textarea::make('deskripsi')
                 ->required(),
-            Forms\Components\TextInput::make('komponen_terpasang')
-                ->required(),
-            Forms\Components\TextInput::make('dimensi')
-                ->required(),
-            Forms\Components\TextInput::make('bahan')
-                ->required(),
-            Forms\Components\TextInput::make('warna')
-                ->required(),
-            Forms\Components\TextInput::make('sumber_daya')
-                ->required(),
+            Forms\Components\Textarea::make('komponen_terpasang')
+                ,
+            Forms\Components\Textarea::make('dimensi')
+                ,
+            Forms\Components\Textarea::make('bahan')
+                ,
+            Forms\Components\Textarea::make('warna')
+                ,
+            Forms\Components\Textarea::make('sumber_daya')
+                ,
             Forms\Components\Textarea::make('data_teknis')
-                ->required(),
-            Forms\Components\TextInput::make('aksesoris')
-                ->required(),
-            Forms\Components\TextInput::make('harga')
-                ->required(),
+                ,
+            Forms\Components\Textarea::make('aksesoris')
+                ,
+            Forms\Components\Textarea::make('harga')
+                ,
             ]);
     }
 
@@ -110,4 +114,5 @@ class BarangResource extends Resource
             'edit' => Pages\EditBarang::route('/{record}/edit'),
         ];
     }
+    
 }

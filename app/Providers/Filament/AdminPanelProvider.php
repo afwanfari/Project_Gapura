@@ -23,6 +23,8 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+        ->font('Poppins')
+        
             ->default()
             ->id('admin')
             ->path('admin')
