@@ -15,19 +15,19 @@
             </div>
             @else
             @foreach ($berita as $beritaCard)
-                <div class="flex flex-col items-center space-y-2 shadow-lg rounded-lg">
-                    <img src="{{ asset('/' . $beritaCard->gambar) }}" alt="{{ $beritaCard->judul }}"
-                        class="w-full h-60 object-cover rounded-lg">
-                    <p class="text-lg">
-                        {{ $beritaCard->judul }}
-                    </p>
-                </div>
+            <div class="flex flex-col items-center space-y-2 shadow-lg rounded-lg">
+                <img src="{{ asset('/' . $beritaCard->gambar) }}" alt="{{ $beritaCard->judul }}"
+                    class="w-full h-60 object-cover rounded-lg">
+                <p class="text-lg">
+                    {{ $beritaCard->judul }}
+                </p>
+            </div>
             @endforeach
             @endif
         </div>
         <div class="py-5 justify-items-center">
-            {{ $berita->links('vendor.livewire.tailwind', ['forcePage' => $berita->currentPage() + 1, 'scrollTo' => false]) }}
+            {{ $berita->links('vendor.livewire.tailwind', ['forcePage' => $berita->currentPage() + 1, 'scrollTo' =>
+            false]) }}
         </div>
     </div>
-
 </div>
