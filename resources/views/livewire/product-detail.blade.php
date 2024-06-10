@@ -25,20 +25,24 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Deskripsi
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                                            @php
-                                                $deskripsiLines = explode("\n", $product->deskripsi); // Gunakan newline sebagai pemisah
-                                            @endphp
-                                            @foreach ($deskripsiLines as $line)
-                                                @if (trim($line) !== '')
-                                                    {{-- Hanya tampilkan baris yang bukan spasi --}}
-                                                    @if (strpos($line, '•') !== 0)
-                                                        {{-- Jika baris tidak diawali dengan tanda • --}}
-                                                        <strong>{{ trim($line) }}</strong><br> {{-- Tampilkan teks yang dicetak tebal --}}
-                                                    @else
-                                                        {{ trim($line) }}<br> {{-- Tampilkan baris dengan tanda • --}}
+                                            @if ($product->jenis_barang !== 'Usaha Kecil Menengah (UKM)')
+                                                {!! wordwrap($product->deskripsi, 150, '<br>', true) !!}
+                                            @else
+                                                @php
+                                                    $deskripsiLines = explode("\n", $product->deskripsi); // Gunakan newline sebagai pemisah
+                                                @endphp
+                                                @foreach ($deskripsiLines as $line)
+                                                    @if (trim($line) !== '')
+                                                        {{-- Hanya tampilkan baris yang bukan spasi --}}
+                                                        @if (strpos($line, '•') !== 0)
+                                                            {{-- Jika baris tidak diawali dengan tanda • --}}
+                                                            <strong>{{ trim($line) }}</strong><br> {{-- Tampilkan teks yang dicetak tebal --}}
+                                                        @else
+                                                            {{ trim($line) }}<br> {{-- Tampilkan baris dengan tanda • --}}
+                                                        @endif
                                                     @endif
-                                                @endif
-                                            @endforeach
+                                                @endforeach
+                                            @endif
                                         </td>
                                     </tr>
 
