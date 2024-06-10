@@ -32,7 +32,7 @@ class KatalogResource extends Resource
                     FileUpload::make('file_path')
                 ->disk('public')
                 ->directory('katalog')
-                ->rules('required', 'mimes:xlsx,xls')
+                ->rules('required', 'mimes:xlsx,xls,doc,docx')
             ]);
     }
 

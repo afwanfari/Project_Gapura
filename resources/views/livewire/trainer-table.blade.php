@@ -19,6 +19,7 @@
                 <tr>
                     <th class="px-6 py-3 border-2">No</th>
                     <th class="px-6 py-3 border-2">Kode Produk</th>
+                    <th class="px-6 py-3 border-2">Gambar</th>
                     <th class="px-6 py-3 border-2">Jenis Produk</th>
                     <th class="px-6 py-3 border-2">Nama Produk</th>
                 </tr>
@@ -30,6 +31,11 @@
                         <td class="px-6 py-4 border-2 ">{{ $loop->iteration }}</td>
                         <td class="px-6 py-4 border-2 font-bold"> <a
                                 href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}">{{ $barang->idbarang }}</a>
+                        </td>
+                        <td class="px-6 py-4 border-2 font-bold"> <a
+                                href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}"> <img
+                                    class="object-cover h-11 w-11" src="{{ asset('/' . $barang->gambar) }}"
+                                    alt="{{ $barang->nama }}"></a>
                         </td>
                         <td class="px-6 py-4 border-2"> <a
                                 href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}">{{ $barang->jenis_barang }}</a>
