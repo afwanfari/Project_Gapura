@@ -10,12 +10,32 @@
         <!-- Sidebar for filtering -->
         <div class="w-1/4 mt-10 border-gray-200">
             <ul class="px-4 space-y-4">
-                @foreach ($jenisList as $jenis)
+                @php
+                    $orderedJenisList = [
+                        'Usaha Kecil Menengah (UKM)',
+                        'Mekatronika',
+                        'Listrik',
+                        'Elektronika',
+                        'TKJ',
+                        'Non Trainer',
+                        'Pendingin',
+                        'Energi terbarukan',
+                        'Lab Bahasa',
+                        'Otomotif & Ototronik Mobil',
+                        'Otomotif & Ototronik Sepeda Motor',
+                        'Alat Berat, Bus, Truk',
+                        'Perkapalan',
+                        'Kereta Api',
+                        'Pesawat Udara',
+                    ];
+                @endphp
+                @foreach ($orderedJenisList as $jenis)
                     <li>
                         <a href="#" wire:click.prevent="filterByJenis('{{ $jenis }}')"
                             class="flex items-center justify-start block gap-2 py-3 border-2 rounded-lg hover:bg-orange-500 hover:text-white">
                             <img class="w-6 h-6 mx-2 select-none"
-                                src="{{ asset('images/' . strtolower($jenis) . '.png') }}" alt="{{ $jenis }}">
+                                src="{{ asset('images/' . strtolower(str_replace(' ', '_', $jenis)) . '.png') }}"
+                                alt="{{ $jenis }}">
                             <span>{{ $jenis }}</span>
                         </a>
                     </li>
@@ -39,7 +59,7 @@
                             </div>
                             <div class="items-center text-center">
                                 <p class="text-sm text-indigo-600">
-                                    {{ $barangCard->idbarang }}|<span
+                                    {{ $barangCard->idbarang }} | <span
                                         class="text-black">{{ Str::limit($barangCard->nama, 50) }}</span>
                                 </p>
                             </div>

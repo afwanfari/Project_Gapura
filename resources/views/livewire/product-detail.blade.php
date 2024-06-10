@@ -1,6 +1,6 @@
 <div>
     <x-app-layout>
-        @section('title', 'PRODUCT LIST | GAPURA')
+        @section('title', 'PRODUCT DETAIL | GAPURA')
         @section('hero')
             <div class="flex justify-items-center mx-auto max-w-7xl">
                 <div class="grid justify-items-center max-w-lg gap-8 mx-auto mt-12 lg:max-w-none">
@@ -100,6 +100,12 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="px-5 py-5 text-center">
+                            <a wire:navigate href="{{ route('produk') }}"
+                                class="inline-block px-6 py-2 text-sm font-semibold text-white bg-blue-500 rounded-full hover:bg-blue-600">
+                                Kembali ke Daftar Produk
+                            </a>
                         </div>
                     </div>
                 </div>
