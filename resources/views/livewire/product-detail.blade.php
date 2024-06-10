@@ -22,7 +22,12 @@
                             <table class="min-w-full divide-y divide-gray-200 table-fixed w-3/10">
                                 <tbody class="bg-white divide-y divide-gray-200">
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Deskripsi
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">
+                                            @if ($product->jenis_barang !== 'Usaha Kecil Menengah (UKM)')
+                                                Deskripsi
+                                            @else
+                                                Spesifikasi
+                                            @endif
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                                             @if ($product->jenis_barang !== 'Usaha Kecil Menengah (UKM)')
