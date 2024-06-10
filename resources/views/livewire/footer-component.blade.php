@@ -8,10 +8,9 @@
                         <li>
                             <h3 class="font-bold text-lg mb-4">{{ $alamat->identitas }}</h3>
                             <p>{{ $alamat->alamat }}</p>
-                            <p>📞 {{ $alamat->nama }} {{ $alamat->kontak }}</p>
                             <p>
                                 <a href="https://wa.me/6285101195575" class="text-blue-500 hover:text-blue-700">
-                                    Hubungi kami di WhatsApp
+                                    📞 {{ $alamat->nama }} {{ $alamat->kontak }}
                                 </a>
                             </p>
                         </li>
