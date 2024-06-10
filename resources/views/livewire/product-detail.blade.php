@@ -98,15 +98,15 @@
                                             @endforeach
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">Harga
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600"> Silahkan Hubungi kami
 
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
+                            <div class="px-5 py-5 text-center">
+                                <a wire:navigate href="{{ route('produk') }}"
+                                    class="inline-block px-6 py-2 text-sm font-semibold text-white bg-blue-500 rounded-full hover:bg-blue-600">
+                                    Kembali ke Daftar Produk
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

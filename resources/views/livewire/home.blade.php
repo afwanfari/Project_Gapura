@@ -10,7 +10,7 @@
     <section class="flex justify-center py-20 mx-5 space-y-24">
         <div x-data="{ sectionproduksi: false }" class="relative w-2/3 bg-gray-200 border-2 rounded shadow-lg">
             <div
-                class="absolute flex items-center underline underline-offset-3 justify-center w-56 h-20 text-3xl -translate-x-1/2 bg-sky-300 rounded z-1 left-1/2 -top-12 text-bold">
+                class="absolute flex items-center underline underline-offset-3 justify-center w-56 h-20 text-3xl -translate-x-1/2 bg-sky-300 font-bold rounded z-1 left-1/2 -top-12 text-bold">
                 Pusat Produksi
             </div>
             <div x-show="!sectionproduksi" x-transition:enter="transition ease-out duration-500"
@@ -62,7 +62,7 @@
     <section class="flex justify-center py-20 mx-5 space-y-24">
         <div x-data="{ sectionproduk: false }" class="relative w-2/3 bg-gray-200 border-2 rounded shadow-lg">
             <div
-                class="absolute underline underline-offset-3 flex items-center justify-center w-56 h-20 text-3xl -translate-x-1/2 bg-sky-300 rounded z-1 left-1/2 -top-12 text-bold">
+                class="font-bold absolute underline underline-offset-3 flex items-center justify-center w-56 h-20 text-3xl -translate-x-1/2 bg-sky-300 rounded z-1 left-1/2 -top-12 text-bold">
                 Up To Date
             </div>
             <div x-show="!sectionproduk" x-transition:enter="transition ease-out duration-500"
@@ -109,7 +109,7 @@
     <section class="flex justify-center py-20 mx-5 space-y-24">
         <div x-data="{ sectiontrust: false }" class="relative w-2/3 bg-gray-200 border-2 rounded shadow-lg">
             <div
-                class="absolute flex items-center underline underline-offset-3 justify-center w-56 h-20 text-3xl -translate-x-1/2 bg-sky-300 rounded z-1 left-1/2 -top-12 text-bold">
+                class="font-bold absolute flex items-center underline underline-offset-3 justify-center w-56 h-20 text-3xl -translate-x-1/2 bg-sky-300 rounded z-1 left-1/2 -top-12 text-bold">
                 Terpercaya
             </div>
             <div x-show="!sectiontrust" x-transition:enter="transition ease-out duration-500"
@@ -136,29 +136,29 @@
         <div class="relative mx-auto max-w-7xl">
             <div class="grid max-w-lg gap-8 mx-auto mt-12 select-none lg:max-w-none lg:grid-cols-3 ">
                 @foreach ($barang as $barangCard)
-                <div
-                    class="flex flex-col space-x-3 bg-white overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500 ">
-                    <a href="/produk/{{ $barangCard->idbarang }}">
-                        <div class="py-1 text-sm px-2 bg-gray-300 ">
-                            <p>{{ $barangCard->jenis_barang }}</>
-                            </p>
-                        </div>
-                        <div class="flex items-center justify-center py-2">
-                            <img class="object-cover h-28 w-30" src="{{ asset('/' . $barangCard->gambar) }}"
-                                alt="{{ $barangCard->nama }}">
-                        </div>
-                        <div class="items-center text-center">
-                            <p class="text-sm text-blue-600">
-                                {{ $barangCard->idbarang }}|<span class="text-black">{{ Str::limit($barangCard->nama,
-                                    50) }}</span>
-                            </p>
-                        </div>
-                        <div>
-                            <p class="block py-2 mx-5 text-start text-slate-800 indent-3">
-                                {{ Str::limit($barangCard->deskripsi, 150) }}</p>
-                        </div>
-                    </a>
-                </div>
+                    <div
+                        class="flex flex-col space-x-3 bg-white overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500 ">
+                        <a href="/produk/{{ $barangCard->idbarang }}">
+                            <div class="py-1 text-sm px-2 bg-gray-300 font-bold">
+                                <p>{{ $barangCard->jenis_barang }}</>
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-center py-2">
+                                <img class="object-cover h-28 w-30" src="{{ asset('/' . $barangCard->gambar) }}"
+                                    alt="{{ $barangCard->nama }}">
+                            </div>
+                            <div class="items-center text-center">
+                                <p class="text-sm text-sky-600 font-bold">
+                                    {{ $barangCard->idbarang }} | <span
+                                        class="text-black font-bold">{{ Str::limit($barangCard->nama, 50) }}</span>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="block py-2 mx-5 text-start text-slate-800 indent-3">
+                                    {{ Str::limit($barangCard->deskripsi, 150) }}</p>
+                            </div>
+                        </a>
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -171,11 +171,11 @@
         <div class="w-1/2 justify-items-center">
             <ul class="px-4 space-y-1 border rounded-lg border-sky-500 shadow-lg justify-center items-center bg-white">
                 @foreach ($katalog as $list)
-                <li class="text-black hover:text-blue-500">
-                    <a href="{{ asset('/' . $list->file_path) }}" download="{{ $list->nama }}">
-                        <span>{{ $list->nama }}</span>
-                    </a>
-                </li>
+                    <li class="text-black hover:text-blue-500">
+                        <a href="{{ asset('/' . $list->file_path) }}" download="{{ $list->nama }}">
+                            <span>{{ $list->nama }}</span>
+                        </a>
+                    </li>
                 @endforeach
             </ul>
         </div>

@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="font-tiny5-regular"">
+<body class="font-Helvetica">
     @include('layouts.partials.header')
     @yield('hero')
     <main class="container flex flex-grow px-5 mx-auto mt-16">
