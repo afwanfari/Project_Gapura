@@ -31,20 +31,41 @@
                                                 @php
                                                     $deskripsiLines = explode("\n", $product->deskripsi); // Gunakan newline sebagai pemisah
                                                 @endphp
+
                                                 @foreach ($deskripsiLines as $line)
                                                     @if (trim($line) !== '')
                                                         {{-- Hanya tampilkan baris yang bukan spasi --}}
-                                                        @if (strpos($line, '•') !== 0)
-                                                            {{-- Jika baris tidak diawali dengan tanda • --}}
-                                                            <strong>{{ trim($line) }}</strong><br> {{-- Tampilkan teks yang dicetak tebal --}}
+                                                        @php
+                                                            $words = explode(' ', $line); // Pisahkan kata-kata dalam baris
+                                                            $wordCount = count($words); // Hitung jumlah kata dalam baris
+                                                        @endphp
+
+                                                        @if ($wordCount > 20)
+                                                            {{-- Jika jumlah kata melebihi 10, pisahkan menjadi beberapa baris --}}
+                                                            @php
+                                                                $chunks = array_chunk($words, 20); // Pisahkan menjadi chunk dengan 10 kata per chunk
+                                                            @endphp
+
+                                                            @foreach ($chunks as $chunk)
+                                                                {{ implode(' ', $chunk) }}<br> {{-- Tampilkan chunk sebagai baris baru --}}
+                                                            @endforeach
                                                         @else
-                                                            {{ trim($line) }}<br> {{-- Tampilkan baris dengan tanda • --}}
+                                                            {{-- Jika jumlah kata kurang dari atau sama dengan 10 --}}
+                                                            @if (strpos($line, '•') !== 0)
+                                                                {{-- Jika baris tidak diawali dengan tanda • --}}
+                                                                <strong>{{ trim($line) }}</strong><br>
+                                                                {{-- Tampilkan teks yang dicetak tebal --}}
+                                                            @else
+                                                                {{ trim($line) }}<br> {{-- Tampilkan baris dengan tanda • --}}
+                                                            @endif
                                                         @endif
                                                     @endif
                                                 @endforeach
+
                                             @endif
                                         </td>
                                     </tr>
+
 
                                     @if ($product->jenis_barang !== 'Usaha Kecil Menengah (UKM)')
                                         <tr>
