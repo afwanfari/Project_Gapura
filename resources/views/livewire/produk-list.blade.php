@@ -7,9 +7,19 @@
             </h1>
         </div>
     </section>
-    <div class="flex">
+    <section x-data="{ mobileSidebarOpen: true }" class="flex flex-row mx-auto mt-6 max-w-7xl">
+        <mobileSidebarNav class="relative z-10 mx-auto mb-6 md:hidden flex-row">
+            <a @click="mobileSidebarOpen = !mobileSidebarOpen"
+                class="flex items-center p-3 font-bold rounded-lg cursor-pointer select-none hover:bg-gray-200">
+                <span>Menu</span>
+                <img x-bind:class="mobileSidebarOpen && 'rotate-180 duration-300'" class="w-4 ml-1.5"
+                    src="https://img.icons8.com/small/32/000000/expand-arrow.png" />
+            </a>
+        </mobileSidebarNav>
         <!-- Sidebar for filtering -->
-        <div class="w-1/4 mt-10 border-gray-200">
+        <div x-show="mobileSidebarOpen" x-cloak x-transition:enter="duration-300 ease-out"
+            x-transition:enter-start="opacity-0 -mt-96" x-transition:enter-end="opacity-100 mt-0"
+            class="w-1/4 mt-10 border-gray-200">
             <ul class="px-4 space-y-4">
                 @foreach ($jenisList as $jenis)
                 <li>
@@ -58,5 +68,5 @@
                 => false]) }}
             </div>
         </div>
-    </div>
+    </section>
 </div>
