@@ -52,7 +52,7 @@ class ProdukList extends Component
             });
         }
     
-        $barangs = $query->paginate(12);
+        $barangs = $query->paginate(12);    
     
         return view('livewire.produk-list', [
             'barangs' => $barangs,

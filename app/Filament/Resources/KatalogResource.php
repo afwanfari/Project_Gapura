@@ -8,13 +8,8 @@ use App\Models\Katalog;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\FileUpload;
-use Illuminate\Database\Eloquent\Builder;
-use Filament\Forms\ComponentContainer;
 use App\Filament\Resources\KatalogResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\KatalogResource\RelationManagers;
 
 class KatalogResource extends Resource
 {

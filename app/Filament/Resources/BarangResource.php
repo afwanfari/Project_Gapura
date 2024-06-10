@@ -9,17 +9,14 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\FileUpload;
-use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\BarangResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\BarangResource\RelationManagers;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class BarangResource extends Resource
 {
     public static function getNavigationBadge(): ?string
 {
-    return static::getModel()::count();
+    return Barang::where('jenis_barang', '!=', 'Usaha Kecil Menengah (UKM)')->count();
 }
     protected static ?string $model = Barang::class;
     protected static ?string $recordTitleAttribute = 'barang';
@@ -33,11 +30,14 @@ class BarangResource extends Resource
                 ->required(),
             Forms\Components\TextInput::make('nama')
                 ->required(),
-            Forms\Components\Select::make('jenis_barang')
+                Forms\Components\Select::make('jenis_barang')
                 ->label('Jenis Barang')
-                ->options(Barang::distinct()->pluck('jenis_barang', 'jenis_barang'))
+                ->options(Barang::distinct()
+                    ->where('jenis_barang', '!=', 'Usaha Kecil Menengah (UKM)')
+                    ->pluck('jenis_barang', 'jenis_barang'))
                 ->searchable()
                 ->required(),
+            
                 FileUpload::make('gambar')
                 ->image()
                 ->disk('public')
@@ -87,7 +87,10 @@ class BarangResource extends Resource
                 Tables\Columns\TextColumn::make('harga'),
             ])
             ->filters([
-                //
+                Tables\Filters\Filter::make('non_ukm')
+                    ->label('Exclude Usaha Kecil Menengah (UKM)')
+                    ->query(fn ($query) => $query->where('jenis_barang', '!=', 'Usaha Kecil Menengah (UKM)'))
+                    ->default(true),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
