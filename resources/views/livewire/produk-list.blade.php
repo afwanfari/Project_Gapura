@@ -6,9 +6,9 @@
             <h1 class="py-5 text-4xl font-bold leading-none tracking-tight underline underline-offset-8">PRODUK KAMI</h1>
         </div>
     </section>
-    <div class="flex">
+    <div class="flex flex-col md:flex-row">
         <!-- Sidebar for filtering -->
-        <div class="w-1/4 mt-10 border-gray-200 font-bold">
+        <div x-data="{ mobileMenuOpen: false }" class="w-1/4 mt-10 border-gray-200 font-bold">
             <ul class="px-4 space-y-4">
                 @php
                     $orderedJenisList = [
@@ -17,7 +17,7 @@
                         'Listrik',
                         'Elektronika',
                         'TKJ',
-                        'Non Trainer',
+                        'Tools',
                         'Pendingin',
                         'Energi terbarukan',
                         'Lab Bahasa',
@@ -77,4 +77,5 @@
             </div>
         </div>
     </div>
+
 </div>
