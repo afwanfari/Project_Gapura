@@ -7,15 +7,13 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\WithoutUrlPagination;
 
-class ItemsPagination extends Component
+class Galeri extends Component
 {
     use WithPagination;
     use WithoutUrlPagination;
-
-    protected $paginationTheme = 'bootstrap';
     public function render()
     {
-        return view('livewire.items-pagination', [
+        return view('livewire.galeri', [
             'berita' => Berita::paginate(20)->fragment('Galeri-Kami'),
         ]);
     }

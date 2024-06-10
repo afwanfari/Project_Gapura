@@ -2,6 +2,6 @@
 <x-app-layout>
     @section('title', 'DAFTAR PRODUK | GAPURA')
     @section('hero')
-        @livewire('trainer-table')
+    @livewire('Produk-Lengkap')
     @endsection
 </x-app-layout>

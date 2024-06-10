@@ -5,7 +5,7 @@ namespace App\Livewire;
 use App\Models\Barang;
 use Livewire\Component;
 
-class TrainerTable extends Component
+class ProdukLengkap extends Component
 {
     public $search = '';
 
@@ -19,7 +19,7 @@ class TrainerTable extends Component
             })
             ->get();
 
-        return view('livewire.trainer-table', ['trainers' => $trainers]);
+        return view('livewire.Produk-Lengkap', ['trainers' => $trainers]);
     }
 
 

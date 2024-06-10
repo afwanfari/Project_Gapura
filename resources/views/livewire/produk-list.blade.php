@@ -8,8 +8,12 @@
         </div>
     </section>
     <div class="flex flex-col md:flex-row">
-        <div x-data="{ mobileMenuOpen: false }" class="w-1/4 mt-10 border-gray-200 font-bold">
-            <ul class="px-4 space-y-4">
+        <div class="w-full md:w-1/4 mt-10 border-gray-200 font-bold">
+            <ul class="px-4 space-y-2">
+                <li class="flex justify-start items-center">
+                    <input type="text" wire:model.live="search" placeholder="Search for Anything..."
+                        class="px-4 py-2 placeholder:italic border rounded-lg h-12 w-full fill-sky-600">
+                </li>
                 @php
                 $orderedJenisList = [
                 'Usaha Kecil Menengah (UKM)',
@@ -32,7 +36,7 @@
                 @foreach ($orderedJenisList as $jenis)
                 <li>
                     <a href="#" wire:click.prevent="filterByJenis('{{ $jenis }}')"
-                        class="flex items-center justify-start block gap-2 py-3 border-2 rounded-lg hover:bg-sky-600 hover:text-white">
+                        class="flex items-center justify-start gap-2 py-3 border-2 rounded-lg hover:bg-sky-600 hover:text-white">
                         <img class="w-6 h-6 mx-2 select-none"
                             src="{{ asset('images/' . strtolower(str_replace(' ', '_', $jenis)) . '.png') }}"
                             alt="{{ $jenis }}">
@@ -42,11 +46,7 @@
                 @endforeach
             </ul>
         </div>
-        <div class="w-3/4 mx-2.5 mt-12 select-none">
-            <div class="mb-4 flex justify-start items-center">
-                <input type="text" wire:model.live="search" placeholder="Search for Anything..."
-                    class="px-4 py-2 placeholder:italic border rounded-full h-16 w-1/3 fill-slate-300">
-            </div>
+        <div class="w-full md:w-3/4 mx-2.5 mt-12 select-none">
             <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-2">
                 @foreach ($barangs as $barangCard)
                 <div
