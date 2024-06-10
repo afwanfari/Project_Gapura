@@ -1,12 +1,12 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-    content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
-    ],
+// tailwind.config.js
+module.exports = {
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                "tiny5-regular": ["Tiny5", "sans-serif"],
+            },
+        },
     },
+    variants: {},
     plugins: [],
 };
