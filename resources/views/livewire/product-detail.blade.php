@@ -56,15 +56,14 @@
                                                             @if (strpos($line, '•') !== 0)
                                                                 <strong>{{ trim($line) }}</strong><br>
                                                             @else
+                                                                {{ trim($line) }}<br>
                                                             @endif
                                                         @endif
                                                     @endif
                                                 @endforeach
-
                                             @endif
                                         </td>
                                     </tr>
-
 
                                     @if ($product->jenis_barang !== 'Usaha Kecil Menengah (UKM)')
                                         <tr>

@@ -27,27 +27,24 @@
             </thead>
             <tbody>
                 @foreach ($trainers as $key => $barang)
-                <tr
-                    class="table-row odd:bg-white even:bg-slate-100 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-100 hover:bg-sky-400 duration-200 cursor-pointer select-none">
-                    <td class="px-2 py-4 border-2 ">{{ $loop->iteration }}</td>
-                    <td class="px-6 py-4 border-2 font-bold"> <a
-                            href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}">{{ $barang->idbarang
-                            }}</a>
-                    </td>
-                    <td class="px-6 py-4 border-2 font-bold"> <a
-                            href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}"> <img
-                                class="object-cover h-11 w-11" src="{{ asset('/' . $barang->gambar) }}"
-                                alt="{{ $barang->nama }}"></a>
-                    </td>
-                    <td class="px-6 py-4 border-2"> <a
-                            href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}">{{
-                            $barang->jenis_barang }}</a>
-                    </td>
-                    <td class="px-6 py-4 border-2"> <a
-                            href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}">{{ $barang->nama
-                            }}</a>
-                    </td>
-                </tr>
+                    <tr
+                        class="table-row odd:bg-white even:bg-slate-100 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-100 hover:bg-sky-400 duration-200 cursor-pointer select-none">
+                        <td class="px-2 py-4 border-2 ">{{ $loop->iteration }}</td>
+                        <td class="px-6 py-4 border-2 font-bold"> <a
+                                href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}">{{ $barang->idbarang }}</a>
+                        </td>
+                        <td class="px-6 py-4 border-2 font-bold"> <a
+                                href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}"> <img
+                                    class="object-cover h-11 w-11" src="{{ asset('/' . $barang->gambar) }}"
+                                    alt="{{ $barang->nama }}"></a>
+                        </td>
+                        <td class="px-6 py-4 border-2"> <a
+                                href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}">{{ $barang->jenis_barang }}</a>
+                        </td>
+                        <td class="px-6 py-4 border-2"> <a
+                                href="{{ route('produk.detail', ['idbarang' => $barang->idbarang]) }}">{{ $barang->nama }}</a>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
