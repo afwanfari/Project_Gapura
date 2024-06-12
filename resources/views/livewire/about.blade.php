@@ -30,8 +30,8 @@
             </p>
         </div>
     </section>
-    <section class="flex justify-start items-start px-6 pt-2 pb-10 !md:flex-col ">
-        <div class="w-1/2 py-10 text-left justify-items-start mx-5">
+    <section class="flex justify-center items-center border border-1 px-6 pt-2 pb-10 !md:flex-col ">
+        <div class="w-1/2 py-10 text-center justify-items-center mx-5">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl pb-5">Rekening Kami</h2>
             <p>
                 BANK MANDIRI
@@ -46,8 +46,28 @@
                 2526272804
                 ATAS NAMA: CV. GAPURA
         </div>
+        <div class="w-1/2 py-10 text-center justify-items-center mx-5">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl pb-5">Kantor Umum</h2>
+            <p>
+                Jl Raden Intan Terminal Arjosari Blok A/34 Arjosari Blimbing Kota Malang Jawa Timur Indonesia 65126 Jawa
+                Timur Indonesia
+            </p>
+            <p>
+                📞 Yusron (+62) 851 101 195 575
+            </p>
+        </div>
+        <div class="w-1/3 py-10 text-center justify-items-center mx-5">
+            <h1 class="text-3xl font-bold tracking-tight text-gray-900 pb-5">Informasi dan Transaksi
+                Trainer/Alat Peraga</h1>
+            <p>
+                Bp. Rusdiawan, S.T.
+            </p>
+            <p>
+                +62 85234122144 (Call/WA/SMS/Telegram)
+            </p>
+        </div>
     </section>
-    <section class="flex items-center justify-start mx-5">
+    <section class="flex items-center pt-2 justify-center mx-5">
         <table
             class="w-3/4 divide-y divide-gray-200 overflow-x-auto rounded-md border-1 border-collapse table-auto justify-items-center select-none">
             <thead class="bg-slate-300">
