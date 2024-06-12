@@ -35,13 +35,15 @@ class GaleriResource extends Resource
                 })
                 ->required(),
             FileUpload::make('gambar')
-                ->image()
+                ->image()->resize(75)
                 ->disk('public')
                 ->directory('berita')
                 ->preserveFilenames('')
                 ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
                     $Name = $file->getClientOriginalName();
-                    return 'barang-' . $Name;
+                    $timestamp = now()->timestamp;
+
+                    return 'barang-' . $Name . '-' . $timestamp;
                 }),
             TextInput::make('orang')
                 ->default(function () {
