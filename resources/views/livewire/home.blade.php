@@ -4,7 +4,11 @@
         <div class="w-full h-full col-start-1 row-start-1 bg-gray-800 bg-opacity-40"></div>
         <div class="col-start-1 row-start-1 px-10 py-24">
             <h1 class="py-5 text-4xl font-bold leading-none tracking-tight underline underline-offset-8">Welcome to
-                CV GAPURA</h1>
+
+            </h1>
+            <h1 class="text-4xl font-bold leading-none tracking-tight underline underline-offset-8">
+                CV. GAPURA INDOTEKNIK
+            </h1>
     </section>
     <section class="flex justify-center py-20 mx-5 space-y-24">
         <div x-data="{ sectionproduksi: false }" class="relative w-2/3 bg-gray-200 border-2 rounded shadow-lg">
