@@ -12,7 +12,7 @@
                             <img class="object-cover h-30 w-30" src="{{ asset('/' . $product->gambar) }}"
                                 alt="{{ $product->nama }}">
                         </div>
-                        <div class="items-center text-center whitespace-nowrap">
+                        <div class="items-center text-center whitespace-nowrap font-bold">
                             <p class="text-sm text-indigo-600">
                                 {{ $product->idbarang }} | <span class="text-black">{{ $product->nama }}</span>
                             </p>
