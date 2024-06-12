@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Barang extends Model
 {
@@ -39,5 +40,13 @@ class Barang extends Model
         }
 
         return $result;
+    }
+    protected static function booted()
+    {
+        static::deleting(function ($barang) {
+            if ($barang->gambar) {
+                Storage::disk('public')->delete('snappic/' . $barang->gambar);
+            }
+        });
     }
 }

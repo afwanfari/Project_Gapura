@@ -12,6 +12,8 @@ use Filament\Tables\Table;
 class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
+    protected static ?string $modelLabel = 'Pesan';
+    protected static ?string $pluralModelLabel = 'Daftar Pesan';
 
     public static function getNavigationBadge(): ?string
     {
@@ -30,19 +32,15 @@ class ContactResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([Tables\Columns\TextColumn::make('name'), Tables\Columns\TextColumn::make('email'), Tables\Columns\TextColumn::make('message')])
-            ->filters([
-            ])
-            ->actions([
-            ])
-            ->bulkActions([
-            ]);
+            ->columns([Tables\Columns\TextColumn::make('name')->label('Nama Pengirim'), Tables\Columns\TextColumn::make('email'), Tables\Columns\TextColumn::make('message')->label('Pesan')])
+            ->filters([])
+            ->actions([])
+            ->bulkActions([]);
     }
 
     public static function getRelations(): array
     {
-        return [
-            ];
+        return [];
     }
 
     public static function getPages(): array
@@ -60,5 +58,9 @@ class ContactResource extends Resource
     public static function shouldRegisterNavigation(): bool
     {
         return true;
+    }
+    public static function getLabel(): string
+    {
+        return 'Pesan';
     }
 }
