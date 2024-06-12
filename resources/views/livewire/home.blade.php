@@ -139,29 +139,29 @@
         <div class="relative mx-auto max-w-7xl">
             <div class="grid max-w-lg gap-8 mx-auto mt-12 select-none lg:max-w-none lg:grid-cols-3 ">
                 @foreach ($barang as $barangCard)
-                <div
-                    class="flex flex-col space-x-3 bg-white overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500 ">
-                    <a href="/produk/{{ $barangCard->idbarang }}">
-                        <div class="py-1 text-sm px-2 bg-gray-300 font-bold">
-                            <p>{{ $barangCard->jenis_barang }}</>
-                            </p>
-                        </div>
-                        <div class="flex items-center justify-center py-2">
-                            <img class="object-cover h-28 w-30" src="{{ asset('/' . $barangCard->gambar) }}"
-                                alt="{{ $barangCard->nama }}">
-                        </div>
-                        <div class="items-center text-center">
-                            <p class="text-sm text-sky-600 font-bold">
-                                {{ $barangCard->idbarang }} | <span class="text-black font-bold">{{
-                                    Str::limit($barangCard->nama, 50) }}</span>
-                            </p>
-                        </div>
-                        <div>
-                            <p class="block py-2 mx-5 text-start text-slate-800 indent-3">
-                                {{ Str::limit($barangCard->deskripsi, 150) }}</p>
-                        </div>
-                    </a>
-                </div>
+                    <div
+                        class="flex flex-col space-x-3 bg-white overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500 ">
+                        <a href="/produk/{{ $barangCard->idbarang }}">
+                            <div class="py-1 text-sm px-2 bg-gray-300 font-bold">
+                                <p>{{ $barangCard->jenis_barang }}</>
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-center py-2">
+                                <img class="object-cover h-28 w-30" src="{{ asset('/' . $barangCard->gambar) }}"
+                                    alt="{{ $barangCard->nama }}">
+                            </div>
+                            <div class="items-center text-center">
+                                <p class="text-sm text-sky-600 font-bold">
+                                    {{ $barangCard->idbarang }} | <span
+                                        class="text-black font-bold">{{ Str::limit($barangCard->nama, 50) }}</span>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="block py-2 mx-5 text-start text-slate-800 indent-3">
+                                    {{ Str::limit($barangCard->deskripsi, 150) }}</p>
+                            </div>
+                        </a>
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -174,17 +174,17 @@
         <div class="w-1/2 justify-items-center">
             <ul class="px-4 space-y-1 border rounded-lg border-sky-500 shadow-lg justify-center items-center bg-white">
                 @if ($katalog->isEmpty())
-                <li class="text-black">
-                    <span>Maaf, katalog sedang kosong</span>
-                </li>
+                    <li class="text-black">
+                        <span>Maaf, katalog sedang kosong</span>
+                    </li>
                 @else
-                @foreach ($katalog as $list)
-                <li class="text-black hover:text-blue-500">
-                    <a href="{{ asset('/' . $list->file_path) }}" download="{{ $list->nama }}">
-                        <span>{{ $list->nama }}</span>
-                    </a>
-                </li>
-                @endforeach
+                    @foreach ($katalog as $list)
+                        <li class="text-black hover:text-blue-500">
+                            <a href="{{ asset('/' . $list->file_path) }}" download="{{ $list->nama }}">
+                                <span>{{ $list->nama }}</span>
+                            </a>
+                        </li>
+                    @endforeach
                 @endif
             </ul>
         </div>
