@@ -7,7 +7,7 @@
             </h1>
         </div>
     </section>
-    <div class="flex-wrap py-10 mx-10 mt-12 select-none justify-items-center">
+    <div class="flex flex-col py-10 mx-10 mt-12 select-none justify-items-center">
         <div class="grid grid-cols-4 gap-4 mx-5 overflow-hidden ">
             @if ($berita->isEmpty())
             <div class="col-span-4 text-center">

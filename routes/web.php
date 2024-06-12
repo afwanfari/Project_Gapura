@@ -16,7 +16,7 @@ Route::get('/galery', function () {
 Route::get('/produk', function () {
     return view('produk');
 })->name('produk');
-Route::get('/trainer', function () {
+Route::get('/Daftar-Produk', function () {
     return view('ProdukLengkap');
 })->name('trainer');
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
