@@ -2,14 +2,15 @@
 
 namespace App\Filament\Resources;
 
+use App\Models\UKM;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Illuminate\Support\Str;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\FileUpload;
 use App\Filament\Resources\UKMResource\Pages;
-use App\Models\UKM;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class UKMResource extends Resource
@@ -24,18 +25,20 @@ class UKMResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Forms\Components\TextInput::make('idbarang')->required(),
-            Forms\Components\TextInput::make('nama')->required(),
+            Forms\Components\TextInput::make('idbarang')->label('Kode Produk')->required(),
+            Forms\Components\TextInput::make('nama')->label('Nama Produk')->required(),
             Forms\Components\Hidden::make('jenis_barang')->default('Usaha Kecil Menengah (UKM)')->required(),
             FileUpload::make('gambar')
                 ->image()
                 ->disk('public')
                 ->directory('snappic')
-                ->preserveFilenames('')
-                ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
-                    $Name = $file->getClientOriginalName();
-                    return 'barang-' . $Name;
-                }),
+                ->preserveFilenames()
+                ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file, $state) {
+                    $idbarang = $state['idbarang'] ?? 'default_id';
+                    $nama = Str::slug($state['nama'] ?? 'default_name');
+                    $extension = $file->getClientOriginalExtension();
+                    return "{$idbarang}-{$nama}.{$extension}";
+                })->label('Upload Gambar Produk'),
             Forms\Components\Textarea::make('deskripsi')->required(),
         ]);
     }
@@ -43,7 +46,7 @@ class UKMResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([Tables\Columns\TextColumn::make('idbarang'), Tables\Columns\TextColumn::make('nama'), Tables\Columns\TextColumn::make('jenis_barang'), Tables\Columns\TextColumn::make('gambar'), Tables\Columns\TextColumn::make('deskripsi')])
+            ->columns([Tables\Columns\TextColumn::make('idbarang')->label('Kode Produk'), Tables\Columns\TextColumn::make('nama')->label('Nama Produk'), Tables\Columns\TextColumn::make('jenis_barang')->label('Jenis Produk'), Tables\Columns\TextColumn::make('gambar')->label('Lokasi Gambar'), Tables\Columns\TextColumn::make('deskripsi')])
             ->filters([
                 Tables\Filters\SelectFilter::make('jenis_barang')
                     ->label('Jenis Barang')
@@ -70,5 +73,9 @@ class UKMResource extends Resource
             'create' => Pages\CreateUKM::route('/create'),
             'edit' => Pages\EditUKM::route('/{record}/edit'),
         ];
+    }public static function getLabel(): string
+    {
+        return 'Usaha Kecil Menengah';
     }
+    
 }

@@ -79,4 +79,8 @@ class GaleriResource extends Resource
             'edit' => Pages\EditGaleri::route('/{record}/edit'),
         ];
     }
+    public static function getLabel(): string
+    {
+        return 'Galeri';
+    }
 }
