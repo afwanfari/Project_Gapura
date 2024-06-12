@@ -26,16 +26,25 @@ class BarangResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Forms\Components\TextInput::make('idbarang')->label('Kode Produk')->required()->unique(static::getModel(), 'idbarang'),
-            Forms\Components\TextInput::make('nama')->label('Nama Produk')->required()->unique(static::getModel(), 'nama'),
+            Forms\Components\TextInput::make('idbarang')
+                ->label('Kode Produk')
+                ->required()
+                ->unique(static::getModel(), 'idbarang')
+                ->reactive(),
+            Forms\Components\TextInput::make('nama')
+                ->label('Nama Produk')
+                ->required()
+                ->unique(static::getModel(), 'nama')
+                ->reactive(),
             Forms\Components\FileUpload::make('gambar')
                 ->image()
                 ->disk('public')
                 ->directory('snappic')
                 ->preserveFilenames()
-                ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file, $state) {
-                    $idbarang = $state['idbarang'] ?? 'default_id';
-                    $nama = Str::slug($state['nama'] ?? 'default_name');
+                ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file, $livewire) {
+                    // Accessing the state from the Livewire component
+                    $idbarang = $livewire->data['idbarang'] ?? 'default_id';
+                    $nama = Str::slug($livewire->data['nama'] ?? 'default_name');
                     $extension = $file->getClientOriginalExtension();
                     return "{$idbarang}-{$nama}.{$extension}";
                 })
