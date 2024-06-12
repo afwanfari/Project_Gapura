@@ -18,11 +18,11 @@
             class="min-w-full divide-y divide-gray-200 overflow-x-auto rounded-md border-1 border-collapse table-auto justify-items-center select-none">
             <thead class="bg-sky-300">
                 <tr>
-                    <th class="px-2 py-3 border-2">No</th>
-                    <th class="px-6 py-3 border-2">Kode Produk</th>
-                    <th class="px-6 py-3 border-2">Gambar</th>
-                    <th class="px-6 py-3 border-2">Jenis Produk</th>
-                    <th class="px-6 py-3 border-2">Nama Produk</th>
+                    <th class="px-2 py-3 border-2 font-bold">No</th>
+                    <th class="px-6 py-3 border-2 font-bold">Kode Produk</th>
+                    <th class="px-6 py-3 border-2 font-bold">Gambar</th>
+                    <th class="px-6 py-3 border-2 font-bold">Jenis Produk</th>
+                    <th class="px-6 py-3 border-2 font-bold">Nama Produk</th>
                 </tr>
             </thead>
             <tbody>

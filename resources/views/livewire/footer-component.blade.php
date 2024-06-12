@@ -43,6 +43,6 @@
                 </div>
             </div>
         </div>
-        <div class="pt-4 mt-10 w-full text-center border-t">© CV.GAPURA 2024. All rights reserved.</div>
+        <div class="pt-4 mt-10 w-full text-center border-t">© CV.GAPURA INDOTEKNIK 2024. All rights reserved.</div>
     </footer>
 </div>
