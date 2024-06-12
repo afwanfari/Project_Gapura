@@ -24,9 +24,7 @@ class ContactResource extends Resource
 
     public static function form(Form $form): Form
     {
-        return $form->schema([
-            // Define read-only fields if needed.
-        ]);
+        return $form->schema([]);
     }
 
     public static function table(Table $table): Table

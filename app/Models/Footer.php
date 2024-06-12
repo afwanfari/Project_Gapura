@@ -11,10 +11,5 @@ class Footer extends Model
 
     protected $table = 'alamat';
 
-    protected $fillable = [
-        'nama',
-        'alamat',
-        'identitas',
-        'kontak',
-    ];
+    protected $fillable = ['nama', 'alamat', 'identitas', 'kontak'];
 }

@@ -10,12 +10,9 @@ class ProdukController extends Controller
 {
     public function index($idbarang)
     {
-        // Lakukan query untuk mendapatkan data barang berdasarkan kode_barang
         $product = DB::table('barang')->where('idbarang', $idbarang)->first();
-
-        // Periksa apakah produk ditemukan atau tidak
         if (!$product) {
-            abort(404); // Atau lakukan tindakan lain sesuai kebutuhan Anda
+            abort(404);
         }
         return view('detail', compact('product'));
     }
@@ -24,7 +21,7 @@ class ProdukController extends Controller
         $product = DB::table('barang')->where('idbarang', $idbarang)->first();
 
         if (!$product) {
-            abort(404); // Atau lakukan tindakan lain sesuai kebutuhan Anda
+            abort(404);
         }
 
         return view('detail', compact('product'));

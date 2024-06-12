@@ -12,23 +12,8 @@ class Barang extends Model
 
     protected $primaryKey = 'id';
     public $timestamps = false;
-    protected $table = 'barang'; // Sesuaikan dengan nama tabel di database
-    protected $fillable = [
-        'nama',
-        'jenis_barang',
-        'idbarang',
-        'gambar',
-        'deskripsi',
-        'komponen_terpasang',
-        'dimensi',
-        'bahan',
-        'warna',
-        'sumber_daya',
-        'data_teknis',
-        'aksesoris',
-        'harga',    
-
-    ];
+    protected $table = 'barang';
+    protected $fillable = ['nama', 'jenis_barang', 'idbarang', 'gambar', 'deskripsi', 'komponen_terpasang', 'dimensi', 'bahan', 'warna', 'sumber_daya', 'data_teknis', 'aksesoris', 'harga'];
 
     public function getData()
     {

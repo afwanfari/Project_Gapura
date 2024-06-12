@@ -28,9 +28,7 @@ class GaleriResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Forms\Components\TextInput::make('judul')
-                ->required()
-                ->unique(static::getModel(), 'judul'), // menambahkan validasi unik untuk field judul
+            Forms\Components\TextInput::make('judul')->required()->unique(static::getModel(), 'judul'),
             TextInput::make('waktu')
                 ->default(function () {
                     return Carbon::now()->format('Y-m-d H:i:s');
@@ -69,8 +67,8 @@ class GaleriResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
-        ];
+                //
+            ];
     }
 
     public static function getPages(): array

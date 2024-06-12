@@ -25,17 +25,9 @@ class UKMResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Forms\Components\TextInput::make('idbarang')
-                ->label('Kode Produk')
-                ->required()
-                ->unique(static::getModel(), 'idbarang'), // Menambahkan validasi unik untuk field idbarang
-            Forms\Components\TextInput::make('nama')
-                ->label('Nama Produk')
-                ->required()
-                ->unique(static::getModel(), 'nama'), // Menambahkan validasi unik untuk field nama
-            Forms\Components\Hidden::make('jenis_barang')
-                ->default('Usaha Kecil Menengah (UKM)')
-                ->required(),
+            Forms\Components\TextInput::make('idbarang')->label('Kode Produk')->required()->unique(static::getModel(), 'idbarang'),
+            Forms\Components\TextInput::make('nama')->label('Nama Produk')->required()->unique(static::getModel(), 'nama'),
+            Forms\Components\Hidden::make('jenis_barang')->default('Usaha Kecil Menengah (UKM)')->required(),
             FileUpload::make('gambar')
                 ->image()
                 ->disk('public')
@@ -48,7 +40,7 @@ class UKMResource extends Resource
                     return "{$idbarang}-{$nama}.{$extension}";
                 })
                 ->label('Upload Gambar Produk')
-                ->unique(static::getModel(), 'gambar'), // Menambahkan validasi unik untuk field gambar
+                ->unique(static::getModel(), 'gambar'),
             Forms\Components\Textarea::make('deskripsi')->required(),
         ]);
     }
@@ -72,8 +64,7 @@ class UKMResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            ];
+        return [];
     }
 
     public static function getPages(): array
@@ -83,9 +74,9 @@ class UKMResource extends Resource
             'create' => Pages\CreateUKM::route('/create'),
             'edit' => Pages\EditUKM::route('/{record}/edit'),
         ];
-    }public static function getLabel(): string
+    }
+    public static function getLabel(): string
     {
         return 'Usaha Kecil Menengah';
     }
-    
 }

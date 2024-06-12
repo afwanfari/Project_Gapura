@@ -37,23 +37,20 @@ class ProdukList extends Component
     public function render()
     {
         $query = Barang::query();
-    
-        // Proses filter jenis_barang
         if ($this->selectedJenis) {
             $query->where('jenis_barang', $this->selectedJenis);
         }
-    
-        // Proses pencarian
         if ($this->search) {
             $query->where(function ($query) {
-                $query->where('nama', 'like', '%' . $this->search . '%')
+                $query
+                    ->where('nama', 'like', '%' . $this->search . '%')
                     ->orWhere('deskripsi', 'like', '%' . $this->search . '%')
                     ->orWhere('jenis_barang', 'like', '%' . $this->search . '%');
             });
         }
-    
-        $barangs = $query->paginate(12);    
-    
+
+        $barangs = $query->paginate(12);
+
         return view('livewire.produk-list', [
             'barangs' => $barangs,
             'jenisList' => $this->jenisList,

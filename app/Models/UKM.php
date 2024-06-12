@@ -12,14 +12,7 @@ class UKM extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $table = 'barang';
-    protected $fillable = [
-        'nama',
-        'jenis_barang',
-        'idbarang',
-        'gambar',
-        'deskripsi',
-
-    ];
+    protected $fillable = ['nama', 'jenis_barang', 'idbarang', 'gambar', 'deskripsi'];
 
     public function getData()
     {
@@ -32,5 +25,4 @@ class UKM extends Model
 
         return $result;
     }
-    
 }

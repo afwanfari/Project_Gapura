@@ -1,6 +1,6 @@
 <x-app-layout>
     @section('title', 'GALERI | GAPURA')
     @section('hero')
-    @livewire('galeri')
+        @livewire('galeri')
     @endsection
 </x-app-layout>

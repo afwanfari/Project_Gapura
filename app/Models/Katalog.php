@@ -13,10 +13,5 @@ class Katalog extends Model
     public $timestamps = false;
     protected $primaryKey = 'idkatalog';
 
-    protected $fillable = [
-        'idkatalog',
-        'nama',
-        'deskripsi',
-        'file_path',
-    ];
+    protected $fillable = ['idkatalog', 'nama', 'deskripsi', 'file_path'];
 }

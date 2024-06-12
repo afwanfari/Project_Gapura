@@ -17,7 +17,7 @@ class ProductDetail extends Component
             ->where('idbarang', $this->productId)
             ->first();
         if (!$this->product) {
-            abort(404); 
+            abort(404);
         }
     }
 
