@@ -28,7 +28,9 @@ class GaleriResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Forms\Components\TextInput::make('judul')->required(),
+            Forms\Components\TextInput::make('judul')
+                ->required()
+                ->unique(static::getModel(), 'judul'), // menambahkan validasi unik untuk field judul
             TextInput::make('waktu')
                 ->default(function () {
                     return Carbon::now()->format('Y-m-d H:i:s');

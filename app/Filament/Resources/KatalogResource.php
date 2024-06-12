@@ -23,7 +23,18 @@ class KatalogResource extends Resource
 
     public static function form(Form $form): Form
     {
-        return $form->schema([Forms\Components\Textarea::make('nama')->label('Nama Katalog')->required(), Forms\Components\TextArea::make('deskripsi')->required(), FileUpload::make('file_path')->disk('public')->directory('katalog')->rules('required', 'mimes:xlsx,xls,doc,docx')->label('Upload File Katalog')]);
+        return $form->schema([
+            Forms\Components\Textarea::make('nama')
+                ->label('Nama Katalog')
+                ->required()
+                ->unique(static::getModel(), 'nama'), // Menambahkan validasi unik untuk field nama
+            Forms\Components\TextArea::make('deskripsi')->required(),
+            FileUpload::make('file_path')
+                ->disk('public')
+                ->directory('katalog')
+                ->rules('required', 'mimes:xlsx,xls,doc,docx')
+                ->label('Upload File Katalog'),
+        ]);
     }
 
     public static function table(Table $table): Table

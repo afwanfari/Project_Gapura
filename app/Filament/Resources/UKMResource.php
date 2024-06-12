@@ -25,9 +25,17 @@ class UKMResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Forms\Components\TextInput::make('idbarang')->label('Kode Produk')->required(),
-            Forms\Components\TextInput::make('nama')->label('Nama Produk')->required(),
-            Forms\Components\Hidden::make('jenis_barang')->default('Usaha Kecil Menengah (UKM)')->required(),
+            Forms\Components\TextInput::make('idbarang')
+                ->label('Kode Produk')
+                ->required()
+                ->unique(static::getModel(), 'idbarang'), // Menambahkan validasi unik untuk field idbarang
+            Forms\Components\TextInput::make('nama')
+                ->label('Nama Produk')
+                ->required()
+                ->unique(static::getModel(), 'nama'), // Menambahkan validasi unik untuk field nama
+            Forms\Components\Hidden::make('jenis_barang')
+                ->default('Usaha Kecil Menengah (UKM)')
+                ->required(),
             FileUpload::make('gambar')
                 ->image()
                 ->disk('public')
@@ -38,7 +46,9 @@ class UKMResource extends Resource
                     $nama = Str::slug($state['nama'] ?? 'default_name');
                     $extension = $file->getClientOriginalExtension();
                     return "{$idbarang}-{$nama}.{$extension}";
-                })->label('Upload Gambar Produk'),
+                })
+                ->label('Upload Gambar Produk')
+                ->unique(static::getModel(), 'gambar'), // Menambahkan validasi unik untuk field gambar
             Forms\Components\Textarea::make('deskripsi')->required(),
         ]);
     }
