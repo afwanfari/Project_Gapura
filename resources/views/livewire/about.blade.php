@@ -30,7 +30,7 @@
             <h1 class="text-3xl font-bold tracking-tight text-gray-900 pb-5">Informasi dan Transaksi
                 Trainer/Alat Peraga</h1>
             <p>
-                Bp. Rusdiawan, S.T. (+62) 852 341 221 44 (Call/WA/SMS/Telegram)
+                Yusron (+62) 851 101 195 575
             </p>
             <p>
 

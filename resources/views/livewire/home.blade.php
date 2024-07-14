@@ -49,44 +49,104 @@
             </div>
         </div>
     </section>
-    <section class="relative px-6 pt-16 pb-20 lg:px-8 lg:pt-24 lg:pb-28 ">
-        <div class="py-10 text-center">
+    <section class="grid px-6 pt-16 justify-items-center lg:px-8 lg:pt-24 ">
+        <div class="py-10 text-center w-full">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kami juga menjual mesin produksi
                 luar negri dengan jaminan sparepart yang berkelanjutan.</h2>
         </div>
+        <div class="grid max-w-7xl grid-cols-1 gap-8 mt-5 justify-items-center ">
+            @php
+                $barangSorted = collect($barang)
+                    ->sortBy(function ($barang) {
+                        return $barang->jenis_barang == 'Usaha Kecil Menengah (UKM)' ? 1 : 2;
+                    })
+                    ->values();
+            @endphp
+            @foreach ($barangSorted->where('jenis_barang', 'Usaha Kecil Menengah (UKM)') as $barangCard)
+                <div
+                    class="flex flex-col w-1/2 justify-items-center space-x-3 bg-white overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500 ">
+                    <a href="{{ route('produk', ['selectedJenis' => $barangCard->jenis_barang]) }}">
+                        <div class="py-1 text-lg px-2 text-center uppercase bg-gray-300 font-bold hover:text-sky-600">
+                            <p>Usaha Kecil Menengah (UKM)</p>
+                        </div>
+                    </a>
+                    <a href="/produk/{{ $barangCard->idbarang }}">
+                        <div class="flex items-center justify-center py-2">
+                            <img class="object-cover h-48 w-48" src="{{ asset('/' . $barangCard->gambar) }}"
+                                alt="{{ $barangCard->nama }}">
+                        </div>
+                        <div class="items-center text-center">
+                            <p class="text-sm text-sky-600 font-bold">
+                                {{ $barangCard->idbarang }} | <span
+                                    class="text-black font-bold">{{ Str::limit($barangCard->nama, 50) }}</span>
+                            </p>
+                        </div>
+                        <div>
+                            <p class="block py-2 mx-5 text-start text-slate-800 indent-3">
+                                {{ Str::limit($barangCard->deskripsi, 150) }}</p>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </section>
+    <section class="relative px-6 pt-2 lg:px-8 lg:pt-24 lg:pb-28 ">
         <div class="relative mx-auto max-w-7xl">
-            <div class="grid max-w-lg gap-8 mx-auto mt-12 select-none lg:max-w-none lg:grid-cols-3 ">
-                @foreach ($barang as $barangCard)
-                    <div
-                        class="flex flex-col space-x-3 bg-white overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500 ">
-                        <a href="/produk/{{ $barangCard->idbarang }}">
-                            <div class="py-1 text-sm px-2 bg-gray-300 font-bold">
-                                <p>{{ $barangCard->jenis_barang }}</>
-                                </p>
-                            </div>
-                            <div class="flex items-center justify-center py-2">
-                                <img class="object-cover h-28 w-30" src="{{ asset('/' . $barangCard->gambar) }}"
-                                    alt="{{ $barangCard->nama }}">
-                            </div>
-                            <div class="items-center text-center">
-                                <p class="text-sm text-sky-600 font-bold">
-                                    {{ $barangCard->idbarang }} | <span
-                                        class="text-black font-bold">{{ Str::limit($barangCard->nama, 50) }}</span>
-                                </p>
-                            </div>
-                            <div>
-                                <p class="block py-2 mx-5 text-start text-slate-800 indent-3">
-                                    {{ Str::limit($barangCard->deskripsi, 150) }}</p>
-                            </div>
-                        </a>
-                    </div>
+            <div class="grid max-w-lg gap-8 mx-auto mt-5 rem select-none lg:max-w-none lg:grid-cols-3 ">
+                @php
+                    $barangSorted = collect($barang)
+                        ->sortBy(function ($barang) {
+                            return $barang->jenis_barang == 'Usaha Kecil Menengah (UKM)' ? 1 : 2;
+                        })
+                        ->values();
+                @endphp
+                @foreach ($barangSorted as $barangCard)
+                    @if ($barangCard->jenis_barang != 'Usaha Kecil Menengah (UKM)')
+                        <div class="flex flex-col space-x-3 bg-white overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500 "
+                            style="max-width: 100%">
+                            <a href="{{ route('produk', ['selectedJenis' => $barangCard->jenis_barang]) }}">
+                                <div
+                                    class="py-1 text-lg px-2 text-center uppercase bg-gray-300 font-bold hover:text-sky-600">
+                                    <p>{{ $barangCard->jenis_barang }}</p>
+                                </div>
+                            </a>
+                            <a href="/produk/{{ $barangCard->idbarang }}">
+                                <div class="flex items-center justify-center py-2">
+                                    <img class="object-cover h-28 w-30" src="{{ asset('/' . $barangCard->gambar) }}"
+                                        alt="{{ $barangCard->nama }}">
+                                </div>
+                                <div class="items-center text-center">
+                                    <p class="text-sm text-sky-600 font-bold">
+                                        {{ $barangCard->idbarang }} | <span
+                                            class="text-black font-bold">{{ Str::limit($barangCard->nama, 50) }}</span>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="block py-2 mx-5 text-start text-slate-800 indent-3">
+                                        {{ Str::limit($barangCard->deskripsi, 150) }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    @endif
                 @endforeach
+                <div class="flex flex-col space-x-3 bg-white overflow-hidden transition duration-150 ease-in-out border-2 rounded-lg shadow-lg shadow-sky-500/50 hover:border-double hover:border-sky-500 "
+                    style="max-width: 100%">
+                    <div class="flex justify-center">
+                        <img src="https://media.giphy.com/media/l41JzDwkM5KQD5kZ4/giphy.gif" alt="Moving Image"
+                            class="h-40 w-full object-cover object-center">
+                    </div>
+                    <div class="px-4 py-2 text-center">
+                        <h3 class="text-lg font-medium text-gray-900">Katalog Produk Terbaru</h3>
+                        <p class="text-sm text-gray-600">Lihat semua produk terbaru kami</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     <section class="flex justify-center items-center px-6 pt-5 pb-10 !md:flex-col">
         <div class="w-1/2 py-10 text-center justify-items-center">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kami Juga Mempunyai Produk Katalog
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kami Juga Mempunyai
+                Produk Katalog
                 Silahkan Dicek.</h2>
         </div>
         <div class="w-1/2 justify-items-center">

@@ -14,7 +14,7 @@ class Galeri extends Component
     public function render()
     {
         return view('livewire.galeri', [
-            'berita' => Berita::paginate(20)->fragment('Galeri-Kami'),
+            'berita' => Berita::paginate(24)->fragment('Galeri-Kami'),
         ]);
     }
 }

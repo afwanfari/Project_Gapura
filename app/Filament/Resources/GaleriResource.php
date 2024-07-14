@@ -34,17 +34,20 @@ class GaleriResource extends Resource
                     return Carbon::now()->format('Y-m-d H:i:s');
                 })
                 ->required(),
-            FileUpload::make('gambar')
-                ->image()->resize(75)
+            Forms\Components\FileUpload::make('gambar')
+                // ->image()->resize(90)
+                ->image()
                 ->disk('public')
                 ->directory('berita')
-                ->preserveFilenames('')
-                ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
-                    $Name = $file->getClientOriginalName();
-                    $timestamp = now()->timestamp;
-
-                    return 'barang-' . $Name . '-' . $timestamp;
-                }),
+                ->preserveFilenames()
+                ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file, $livewire) {
+                    // Accessing the state from the Livewire component
+                    $judul = $livewire->data['judul'] ?? 'judul';
+                    $extension = $file->getClientOriginalExtension();
+                    return "{$judul}.{$extension}";
+                })
+                ->label('Upload Gambar Produk')
+                ->unique(static::getModel(), 'gambar'),
             TextInput::make('orang')
                 ->default(function () {
                     $user = Auth::user();

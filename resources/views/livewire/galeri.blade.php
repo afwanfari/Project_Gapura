@@ -10,24 +10,23 @@
     <div class="flex flex-col py-10 mx-10 mt-12 select-none justify-items-center">
         <div class="flex flex-wrap gap-4 mx-5 overflow-hidden ">
             @if ($berita->isEmpty())
-            <div class="col-span-4 text-center">
-                <span>Maaf, tidak ada berita saat ini.</span>
-            </div>
+                <div class="col-span-4 text-center">
+                    <span>Maaf, tidak ada berita saat ini.</span>
+                </div>
             @else
-            @foreach ($berita as $beritaCard)
-            <div class="flex flex-col items-center space-y-2 shadow-lg rounded-lg">
-                <img src="{{ asset('/' . $beritaCard->gambar) }}" alt="{{ $beritaCard->judul }}"
-                    class="w-41 h-40 object-fill rounded">
-                <p class="font-bold underline underline-offset-1">
-                    {{ $beritaCard->judul }}
-                </p>
-            </div>
-            @endforeach
+                @foreach ($berita as $beritaCard)
+                    <div class="flex flex-col items-center gap-1 ">
+                        <img src="{{ asset('/' . $beritaCard->gambar) }}" alt="{{ $beritaCard->judul }}"
+                            class="w-40 h-40 object-cover rounded-lg">
+                        <p class="text-sm text-semibold text-center truncate w-full">
+                            {{ Str::limit($beritaCard->judul, 17) }}
+                        </p>
+                    </div>
+                @endforeach
             @endif
         </div>
         <div class="py-5 justify-items-center">
-            {{ $berita->links('vendor.livewire.tailwind', ['forcePage' => $berita->currentPage() + 1, 'scrollTo' =>
-            false]) }}
+            {{ $berita->links('vendor.livewire.tailwind', ['forcePage' => $berita->currentPage() + 1, 'scrollTo' => false]) }}
         </div>
     </div>
 </div>
